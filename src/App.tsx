@@ -137,10 +137,14 @@ function signin()
     </form>
   </section>
 }
-
+function testCookie(cookie,setFunction){
+    setFunction("userSession","hashWouldBeHere");
+}
 function LoginPage(props)
 {
+  
   return(<div>
+<button className='bg-azure-500' onClick={testCookie(props.cookie,props.setcookie)}>test b</button>
 <h1 className='text-3xl mb-5'>login</h1>
 
 <form>
@@ -261,7 +265,7 @@ const [cookies,setCookie]= useCookies(['userToken']);
         currentPage==3&&<DiscussionPage></DiscussionPage>
       }
       {
-        currentPage==4&&<LoginPage setPage={setPage}></LoginPage>
+        currentPage==4&&<LoginPage setPage={setPage}            cookie={cookies} setcookie={setCookie}></LoginPage>
       }
       {
         currentPage==5&&<RegisterPage setPage={setPage}></RegisterPage>
