@@ -4,6 +4,8 @@ import './index.css'
 import Navbar from './navbar.jsx';
 import NavbarButton from './navbarbutton.jsx';
 import Gallery from './imggallery.jsx';
+import DevLog from './devlog.jsx';
+
 import {useCreateEntity} from '@replyke/react-js'
  //import { ThreadedCommentSection, type Threaded  StyleCallbacks } from './src\components\comments-threaded'
 //import { ThreadedCommentSection } from './components/comments-threaded';
@@ -97,20 +99,7 @@ return <div>
 </div>
 
 }
-function DevLog()
-{
-  return(
-<div>
-<h1 className='text-center text-5xl m-10 text-indigo-400' >Devlog</h1>
-<h2 className='text-teal-400'> Seperating App.tsx to multiple parts, cookies and login progress </h2><br></br>
-<p className='text-indigo-400'> Currently the backend can connect to the database and can compare given text password to the stored hash and return true if the password is correct. It can also compare if username exists and create users. So basic crud operations work on the local version. It is quite imperative to soon find a hosting solution for the node backend so I can get to working on connecting the backend.<br></br> <br></br>
-I finally realized that the App file had grown unwildy and became too long. So components were moved from it to seperate files. While making this first log I can already tell I want a better solution for writing it.<br></br> <br></br>
-  The current login system at the time is planned to use cookies for storing the user login. So a cookie disclosure is added to site. Currently the close disclosure button doesnt work so it will be disabled for the build. The login forms seem quite daunting or the example code for it was overly complicated. Recardless it has to be designed. The current log in screen is quite ugly. I should find literature on color theory. <br></br> <br></br>
-13.3.2026</p>
-<p className='font-serif break-all text-center text-2xl m-10 text-indigo-400'></p>
-</div>)
 
-}
 
 function createPostP() 
 {
