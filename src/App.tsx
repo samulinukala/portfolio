@@ -5,8 +5,6 @@ import Navbar from './navbar.jsx';
 import NavbarButton from './navbarbutton.jsx';
 import Gallery from './imggallery.jsx';
 import DevLog from './devlog.jsx';
-
-
 import {useCreateEntity} from '@replyke/react-js'
  //import { ThreadedCommentSection, type Threaded  StyleCallbacks } from './src\components\comments-threaded'
 //import { ThreadedCommentSection } from './components/comments-threaded';

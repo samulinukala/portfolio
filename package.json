@@ -20,7 +20,7 @@
     "@replyke/react-js": "^6.1.1",
     "@replyke/ui-core-react-js": "^6.1.1",
     "@tailwindcss/vite": "^4.1.18",
-    "axios": "^1.13.2",
+    "axios": "^1.15.1",
     "bcrypt": "^6.0.0",
     "react": "^19.2.0",
     "react-cookie": "^8.0.1",
