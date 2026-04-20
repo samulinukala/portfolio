@@ -10,7 +10,9 @@ return (
 
 <NavbarButton Text="Devlog" num={2}changefunc={props.changefunc}></NavbarButton>  
 <NavbarButton Text="blog" num={3}changefunc={props.changefunc}></NavbarButton>  
-<NavbarButton Text="login" num={4}changefunc={props.changefunc}></NavbarButton>  
+<NavbarButton Text="login" num={4}changefunc={props.changefunc}></NavbarButton>
+<NavbarButton Text="register" num={5}changefunc={props.changefunc}></NavbarButton>
+<NavbarButton Text="chat" num={6}changefunc={props.changefunc}></NavbarButton>
 </div>
 )}
 export default Navbar

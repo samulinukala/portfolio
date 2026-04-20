@@ -6,6 +6,7 @@ import NavbarButton from './navbarbutton.jsx';
 import Gallery from './imggallery.jsx';
 import DevLog from './devlog.jsx';
 
+
 import {useCreateEntity} from '@replyke/react-js'
  //import { ThreadedCommentSection, type Threaded  StyleCallbacks } from './src\components\comments-threaded'
 //import { ThreadedCommentSection } from './components/comments-threaded';
@@ -15,7 +16,7 @@ import { CommentsFeed, ThreadedCommentSection } from '@replyke/comments-thread-r
 
 import { register } from 'node:module';
 import {CookiesProvider,useCookies} from 'react-cookie'
-
+const backendUrl="https://portfolio-backend-tur1.onrender.com";
 const USER_REGEX=/^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
@@ -191,6 +192,40 @@ return(
   </div>
 )
 }
+async function getChatLog()
+{
+
+const url = "https://portfolio-backend-tur1.onrender.com/api/chat"
+const response= await fetch(url);
+const data=await response.text();
+console.log(data);
+
+
+}
+function Chat()
+{
+getChatLog();
+const [chatData,setChatData]=useState("Backend functionality is done at a free plan which makes the startup time quite slow so be prepared to wait for few seconds after clicking");
+const getChat= async()=>
+{
+const d="kisssa";
+console.log(d);
+
+
+
+}
+return(
+<div>
+<h1>Chat</h1>
+<h2> This is a simple implementation of a chat  </h2>
+<br></br><br></br>
+<button onClick={getChatLog}
+>refresh chat</button>
+<br></br>
+<p> { chatData } </p>
+
+</div>)
+}
 function DiscussionPage()
 {
 
@@ -258,6 +293,9 @@ const [cookies,setCookie]= useCookies(['userToken']);
       }
       {
         currentPage==5&&<RegisterPage setPage={setPage}></RegisterPage>
+      }
+      {
+        currentPage==6&&<Chat></Chat>
       }
       <BackendTest></BackendTest>
       
