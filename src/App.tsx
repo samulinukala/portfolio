@@ -203,6 +203,11 @@ return data;
 
 function Chat()
 {
+  const handleInputChange=(event)=>{setMessage(event.target.value);}
+  const string= "Backend functionality is done at a free plan which makes the startup time quite slow so be prepared to wait for few seconds for the chat";
+  const [chatData,setChatData]=useState([]);
+  const [message,setMessage]=useState();
+  useEffect(()=>{
 const chatTimer=setInterval(()=>{
  getChatLog().then((d)=>{
  setChatData(d);
@@ -211,11 +216,10 @@ const chatTimer=setInterval(()=>{
 
 
 })
-},4000);
-const string= "Backend functionality is done at a free plan which makes the startup time quite slow so be prepared to wait for few seconds for the chat";
-const [chatData,setChatData]=useState([]);
-const [message,setMessage]=useState();
-const handleInputChange=(event)=>{setMessage(event.target.value);}
+},2000);
+
+
+},[])
 function sendMessage()
 {
 const url = "https://portfolio-backend-tur1.onrender.com/api/chat/sendMessage/"+message;
