@@ -196,8 +196,8 @@ async function getChatLog()
 
 const url = "https://portfolio-backend-tur1.onrender.com/api/chat"
 const response= await fetch(url);
-const data=await response.text();
-console.log(data);
+const data=await response.json();
+
 return data;
 }
 
@@ -205,12 +205,15 @@ function Chat()
 {
 const chatTimer=setInterval(()=>{
  getChatLog().then((d)=>{
-setChatData(d);
+ setChatData(d);
+  
+  
+
+
 })
-
 },4000);
-
-const [chatData,setChatData]=useState("Backend functionality is done at a free plan which makes the startup time quite slow so be prepared to wait for few seconds for the chat");
+const string= "Backend functionality is done at a free plan which makes the startup time quite slow so be prepared to wait for few seconds for the chat";
+const [chatData,setChatData]=useState([]);
 const [message,setMessage]=useState();
 const handleInputChange=(event)=>{setMessage(event.target.value);}
 function sendMessage()
@@ -220,18 +223,37 @@ fetch(url,{
 method: 'PUT'});
 
 }
+function List()
+{
+return (
+<div>
+{
+chatData.map((m)=>
+(
+<div>
+<h3>{m.un}</h3>
+<p>{m.message}</p>
+<br></br>
+</div>
+))
+}
+</div>
+)
+}
 return(
 <div>
 <h1>Chat</h1>
 <h2> This is a simple implementation of a chat  </h2>
-<br></br><br></br>
+<p>{string}</p>
+<br></br>
 
 <input placeholder='message here' onChange={handleInputChange}></input>
+
 <button onClick={sendMessage}>send</button>
 
-
 <br></br>
-<p> { chatData } </p>
+<br></br>
+<List></List>
 
 </div>)
 }
