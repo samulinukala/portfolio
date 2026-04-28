@@ -79,8 +79,7 @@ return(
  <div>
  <h1 className='text-center text-5xl m-10 text-indigo-400' >About</h1>
  <p className='text-indigo-400'>
-  Hello. I am learning webdevelopment and I have started to make this website to improve my skills. it will slowly improve over time. It uses React framework for the components. It uses Vite for building the site. I also draw so I added an gallery as chalenge. I am currently working towards adding a login system and getting the backend ready for the login feature.
-
+  Hello. I am learning webdevelopment and I have started to make this website to improve my skills. it will slowly improve over time. It uses React framework for the components. It uses Vite for building the site. I also draw so I added an gallery as chalenge. The chat currently works but takes a while to start o. Time will tell how it will pan out. the free plan. I am hoping to make it a sort of showcase for my stuff and what I have done. Time will tell how it will pan out.
 
  </p>
 </div>)
@@ -210,8 +209,10 @@ function Chat()
   useEffect(()=>{
 const chatTimer=setInterval(()=>{
  getChatLog().then((d)=>{
+  d.reverse();
  setChatData(d);
-  
+scroll();
+
   
 
 
@@ -245,7 +246,9 @@ const url = "https://portfolio-backend-tur1.onrender.com/api/chat/sendMessage/"+
 fetch(url,{
 method: 'PUT'});
 
+
 }
+
 
 return(
 <div >
@@ -255,16 +258,19 @@ return(
 <p>{string}</p>
 <br></br>
 <h2> This is a simple implementation of a chat  </h2>
-<div className='h-[75vh] overflow-auto scroll-smooth bg-gray-700'>
+<div className='h-[73vh] overflow-auto scroll-smooth bg-gray-700'>
 <List></List>
 </div>
-<div className='h-15 bg-pink-500'>
+<div className='h-[4vh] bg-pink-500'>
 <form action={handleSendMessage}>
 <input className='bg-pink-400 h-[4vh] w-[20vw]' placeholder='message here'  onChange={handleInputChange}></input>
 
-<button type='submit' className='bg-pink-600 h-[4vh] w-[6vw]' >send</button>
+<button type='submit'  className='bg-pink-600 h-[4vh] w-[6vw]' >send</button>
 </form>
 </div>
+
+
+
 </div>)
 }
 function DiscussionPage()
