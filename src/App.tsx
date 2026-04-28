@@ -216,27 +216,22 @@ const chatTimer=setInterval(()=>{
 
 
 })
-},2000);
+},1000);
 
 
 },[])
-function sendMessage()
-{
-const url = "https://portfolio-backend-tur1.onrender.com/api/chat/sendMessage/"+message;
-fetch(url,{
-method: 'PUT'});
-
-}
 function List()
 {
+
+
 return (
-<div>
+<div> 
 {
 chatData.map((m)=>
 (
 <div>
-<h3>{m.un}</h3>
-<p>{m.message}</p>
+<h3 className='bg-indigo-400'>{m.un}</h3>
+<p className='text-indigo-300'>{m.message}</p>
 <br></br>
 </div>
 ))
@@ -244,21 +239,32 @@ chatData.map((m)=>
 </div>
 )
 }
+const handleSendMessage=(event)=>
+{
+const url = "https://portfolio-backend-tur1.onrender.com/api/chat/sendMessage/"+message;
+fetch(url,{
+method: 'PUT'});
+
+}
+
 return(
-<div>
+<div >
+
 <h1>Chat</h1>
-<h2> This is a simple implementation of a chat  </h2>
+
 <p>{string}</p>
 <br></br>
-
-<input placeholder='message here' onChange={handleInputChange}></input>
-
-<button onClick={sendMessage}>send</button>
-
-<br></br>
-<br></br>
+<h2> This is a simple implementation of a chat  </h2>
+<div className='h-[75vh] overflow-auto scroll-smooth bg-gray-700'>
 <List></List>
+</div>
+<div className='h-15 bg-pink-500'>
+<form action={handleSendMessage}>
+<input className='bg-pink-400 h-[4vh] w-[20vw]' placeholder='message here'  onChange={handleInputChange}></input>
 
+<button type='submit' className='bg-pink-600 h-[4vh] w-[6vw]' >send</button>
+</form>
+</div>
 </div>)
 }
 function DiscussionPage()
@@ -330,7 +336,7 @@ const [cookies,setCookie]= useCookies(['userToken']);
         currentPage==5&&<RegisterPage setPage={setPage}></RegisterPage>
       }
       {
-        currentPage==6&&<Chat></Chat>
+        currentPage==6&&<Chat ></Chat>
       }
       <BackendTest></BackendTest>
       
