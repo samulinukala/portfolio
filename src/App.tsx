@@ -113,40 +113,38 @@ const handleCreate=async() =>{
   return (<button onClick={handleCreate}>create post</button>)
 }
 }
-function signin()
-{
-  <section>
-    <p>errormsg</p>
-    <form>
-      <label htmlFor='username'>
-        Username:
-      </label>
-    </form>
-  </section>
-}
 function testCookie(cookie,setFunction){
     setFunction("userSession","hashWouldBeHere");
 }
+function loginUser()
+{
+
+}
 function LoginPage(props)
 {
+const onSubmit=e=>
+{ e.preventDefault();
+  fetch("https://portfolio-backend-tur1.onrender.com/api/users/login/"+username+"/"+password);
   
+}
+ const [username,setUsername]=useState(null);
+ const [password,setPassword]=useState(null);
   return(<div>
-<button className='bg-azure-500' onClick={testCookie(props.cookie,props.setcookie)}>test b</button>
+<button className='bg-azure-500' onClick={testCookie(props.cookie,props.setcookie)}> test cookie</button>
 <h1 className='text-3xl mb-5'>login</h1>
 
-<form>
-  <label className='bg-amber-400 text-2xl ' >username
-    <input className='bg-gray-500 text-2xl ' type='text'></input>
+<form onSubmit={onSubmit}>
+  <label className='bg-amber-400 text-2xl '>username
+    <input className='bg-gray-500 text-2xl ' type='text' onChange={e=>setUsername(e.currentTarget.value)}></input>
   </label>
   <br></br>
-  
   <br></br>
   <label className='bg-amber-400 text-2xl'>password
-    <input className='bg-gray-500 text-2xl' type='password'></input>
+    <input className='bg-gray-500 text-2xl'type='password' onChange={e=>setPassword(e.currentTarget.value)}></input>
   </label>
   <br></br>
   <br></br>
-  <button className='bg-green-400 text-2xl'><p className='text-2xl'></p>login</button>
+  <button className='bg-green-400 text-2xl'><p className='text-2xl' type='submit'></p>login</button>
 </form>
 <br></br>
 <NavbarButton className='text-0.5xl' Text="Don't have an account" num={5} changefunc={props.setPage}></NavbarButton>
