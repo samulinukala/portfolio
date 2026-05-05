@@ -113,24 +113,23 @@ const handleCreate=async() =>{
   return (<button onClick={handleCreate}>create post</button>)
 }
 }
-function testCookie(cookie,setFunction){
-    setFunction("userSession","hashWouldBeHere");
-}
-function loginUser()
-{
 
-}
+
 function LoginPage(props)
 {
 const onSubmit=e=>
-{ e.preventDefault();
-  fetch("https://portfolio-backend-tur1.onrender.com/api/users/login/"+username+"/"+password);
-  
+{e.preventDefault();
+ 
+  async function tryLogin()
+{
+   const r=await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login/"+username+"/"+password);
+  r==undefined? console.log("error login") : props.setCookie(r.text());
+}
+tryLogin();
 }
  const [username,setUsername]=useState(null);
  const [password,setPassword]=useState(null);
   return(<div>
-<button className='bg-azure-500' onClick={testCookie(props.cookie,props.setcookie)}> test cookie</button>
 <h1 className='text-3xl mb-5'>login</h1>
 
 <form onSubmit={onSubmit}>
@@ -334,7 +333,7 @@ const [cookies,setCookie]= useCookies(['userToken']);
         currentPage==3&&<DiscussionPage></DiscussionPage>
       }
       {
-        currentPage==4&&<LoginPage setPage={setPage}            cookie={cookies} setcookie={setCookie}></LoginPage>
+        currentPage==4&&<LoginPage setPage={setPage}            cookie={cookies} setCookie={setCookie}></LoginPage>
       }
       {
         currentPage==5&&<RegisterPage setPage={setPage}></RegisterPage>
