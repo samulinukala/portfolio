@@ -122,8 +122,10 @@ const onSubmit=e=>
  
   async function tryLogin()
 {
-   const r=await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login/"+username+"/"+password);
-  r==undefined? console.log("error login") : props.setCookie(r.text());
+  await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login/"+username+"/"+password,
+{
+credentials: 'include',
+});
 }
 tryLogin();
 }
@@ -241,7 +243,7 @@ const handleSendMessage=(event)=>
 {
 const url = "https://portfolio-backend-tur1.onrender.com/api/chat/sendMessage/"+message;
 fetch(url,{
-method: 'PUT'});
+method: 'PUT',credentials: "include"});
 
 
 }
