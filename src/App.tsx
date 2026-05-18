@@ -124,9 +124,10 @@ const onSubmit=e=>
 {
   await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login",
 {
-method: 'GET',
+method: 'PUT',
 body: JSON.stringify({parameter1:username,parameter2:password}),
 credentials: 'include',
+headers:{'Content-Type':'application/json'}
 });
 }
 tryLogin();
