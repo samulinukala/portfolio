@@ -122,8 +122,10 @@ const onSubmit=e=>
  
   async function tryLogin()
 {
-  await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login/"+username+"/"+password,
+  await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login",
 {
+method: 'GET',
+body: JSON.stringify({parameter1:username,parameter2:password}),
 credentials: 'include',
 });
 }
