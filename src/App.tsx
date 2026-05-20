@@ -122,14 +122,14 @@ const onSubmit=e=>
  
   async function tryLogin()
 {
- const c= await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login",
+ fetch("https://portfolio-backend-tur1.onrender.com/api/users/login",
 {
-method: 'PUT',
+method: 'POST',
 body: JSON.stringify({parameter1:username,parameter2:password}),
 credentials: 'include',
 headers:{'Content-Type':'application/json'}
 });
-props.setCookie(c);
+
 }
 tryLogin();
 }
