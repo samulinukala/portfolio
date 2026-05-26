@@ -179,7 +179,7 @@ return(
      </label>
       <br></br>
       <br></br>
-      <label className='bg-violet-600 text-2xl' >think of a password with a letter,number and a character that is 4-32 long;
+      <label className='bg-violet-600 text-2xl' >think of a password with a letter,number and a character that is 4-32 long or not;
         <input className='bg-gray-500 text-2xl '></input>
       </label>
       <br></br>
