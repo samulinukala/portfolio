@@ -151,6 +151,9 @@ tryLogin();
   <br></br>
   <button className='bg-green-400 text-2xl'><p className='text-2xl' type='submit'></p>login</button>
 </form>
+<button onClick={()=>{fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie").then((d)=>{
+console.log(d);
+})}}>test cookie</button>
 <br></br>
 <NavbarButton className='text-0.5xl' Text="Don't have an account" num={5} changefunc={props.setPage}></NavbarButton>
 </div>
