@@ -151,7 +151,7 @@ tryLogin();
   <br></br>
   <button className='bg-green-400 text-2xl'><p className='text-2xl' type='submit'></p>login</button>
 </form>
-<button className='bg-pink-500 text-2xl' onClick={()=>{fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie",{credentials:'include'}).then((d)=>{
+<button className='bg-pink-500 text-2xl' onClick={()=>{fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie",{credentials:'include',method:'GET'}).then((d)=>{
 console.log(d);
 })}}>test cookie</button>
 <br></br>
