@@ -160,13 +160,15 @@ console.log(d);
   )
 }
 
-async function submitPassword(props)
-{
-	
-}
+
 
 function RegisterPage(props)
 {
+const onSubmit=>e=>{
+
+}
+const [password,setPassword]=useState("");
+const [userName,setUserName]=useState("");
 return(
 <div>
   <p className='text-3xl mb-5'>
@@ -175,12 +177,12 @@ return(
     <form 
     >
       <label className='bg-amber-400 text-2xl'>username 
-      <input className='bg-gray-500 text-2xl ' type='text'></input>
+      <input className='bg-gray-500 text-2xl ' type='text' onChange={()=>{setUserName(e.currentTarget.value);}}></input>
      </label>
       <br></br>
       <br></br>
-      <label className='bg-violet-600 text-2xl' >think of a password with a letter,number and a character that is 4-32 long or not;
-        <input className='bg-gray-500 text-2xl '></input>
+      <label className='bg-violet-600 text-2xl' >think of a strong password that you can remember;
+        <input className='bg-gray-500 text-2xl ' onChange={()=>{setPassword(e.currentTarget.value)}}></input>
       </label>
       <br></br>
       <br></br>
