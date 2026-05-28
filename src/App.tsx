@@ -123,6 +123,7 @@ const onSubmit=e=>
   async function tryLogin()
 {
  fetch("https://portfolio-backend-tur1.onrender.com/api/users/login",
+
 {
 method: 'POST',
 body: JSON.stringify({parameter1:username,parameter2:password}),
@@ -165,6 +166,8 @@ console.log(d);
 function RegisterPage(props)
 {
 const onSubmit=>e=>{
+e.preventDefault()
+ fetch("https://portfolio-backend-tur1.onrender.com/api/users/create/"+userName+"/"+password,{method:'PUT',credentials:'include',headers:{'Content-Type':'application/json'}});
 
 }
 const [password,setPassword]=useState("");
