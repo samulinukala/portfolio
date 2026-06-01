@@ -166,7 +166,23 @@ async function submitPassword(props)
 }
 
 function RegisterPage(props)
-{
+{ const [username,setUsername]=useState(null);
+  const [password,setPassword]=useState(null);
+  const [repeatedPassword,setRepeatPassword]=useState(null);
+ const onSubmit=e=>{
+e.preventDefault();
+async function createUser(){
+fetch("http://portfolio-backend-tur1.com/api/users/createUser/"+username+"/"+password,
+{method:'PUT',
+headers:{'Content-Type':'application/json'}
+
+});
+}
+createUser();
+} 
+
+
+
 return(
 <div>
   <p className='text-3xl mb-5'>
@@ -179,8 +195,8 @@ return(
      </label>
       <br></br>
       <br></br>
-      <label className='bg-violet-600 text-2xl' >think of a password with a letter,number and a character that is 4-32 long or not;
-        <input className='bg-gray-500 text-2xl '></input>
+      <label className='bg-violet-600 text-2xl' >think of a strong password you can remember;
+        <input className='bg-gray-500 text-2xl ' onChange={e=>setUsername(e.currentTarget.value)}></input>
       </label>
       <br></br>
       <br></br>
@@ -189,7 +205,7 @@ return(
       </label>
       <br></br>
       <br></br>
-      <button className='bg-green-400 text-2xl' >register</button>
+      <button className='bg-green-400 text-2xl' type='submit' >register</button>
     </form>
   <NavbarButton Text="already have an account" num={4} changefunc={props.setPage}></NavbarButton>
   </div>
@@ -293,28 +309,7 @@ return(
 </ThreadedCommentSection>
 </>)
 }
-const handleEmail=(e)=>
-{
-	setEmail(e.target.value);
-}
-const handlePassword=(e)=>
-{
-	setPassword(e.target.value);
-}
-async function handleLogin(e)
-{
 
-}
-async function handleRegister(e)
-{
-	e.preventDefault();
-	alert("user added");
-	const userData=
-	{
-		email:email,
-		password:password,
-	};
-}
 
 function App() {
 const [currentPage,setPage]=useState(1);
