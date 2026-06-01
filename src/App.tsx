@@ -123,6 +123,7 @@ const onSubmit=e=>
   async function tryLogin()
 {
  fetch("https://portfolio-backend-tur1.onrender.com/api/users/login",
+
 {
 method: 'POST',
 body: JSON.stringify({parameter1:username,parameter2:password}),
@@ -160,12 +161,10 @@ console.log(d);
   )
 }
 
-async function submitPassword(props)
-{
-	
-}
+
 
 function RegisterPage(props)
+<<<<<<< HEAD
 { const [username,setUsername]=useState(null);
   const [password,setPassword]=useState(null);
   const [repeatedPassword,setRepeatPassword]=useState(null);
@@ -183,6 +182,16 @@ createUser();
 
 
 
+=======
+{
+const onSubmit=>e=>{
+e.preventDefault()
+ fetch("https://portfolio-backend-tur1.onrender.com/api/users/create/"+userName+"/"+password,{method:'PUT',credentials:'include',headers:{'Content-Type':'application/json'}});
+
+}
+const [password,setPassword]=useState("");
+const [userName,setUserName]=useState("");
+>>>>>>> f2f1d56edc02657c1e0b02aa57d4b815241647e8
 return(
 <div>
   <p className='text-3xl mb-5'>
@@ -191,12 +200,17 @@ return(
     <form 
     >
       <label className='bg-amber-400 text-2xl'>username 
-      <input className='bg-gray-500 text-2xl ' type='text'></input>
+      <input className='bg-gray-500 text-2xl ' type='text' onChange={()=>{setUserName(e.currentTarget.value);}}></input>
      </label>
       <br></br>
       <br></br>
+<<<<<<< HEAD
       <label className='bg-violet-600 text-2xl' >think of a strong password you can remember;
         <input className='bg-gray-500 text-2xl ' onChange={e=>setUsername(e.currentTarget.value)}></input>
+=======
+      <label className='bg-violet-600 text-2xl' >think of a strong password that you can remember;
+        <input className='bg-gray-500 text-2xl ' onChange={()=>{setPassword(e.currentTarget.value)}}></input>
+>>>>>>> f2f1d56edc02657c1e0b02aa57d4b815241647e8
       </label>
       <br></br>
       <br></br>
