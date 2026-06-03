@@ -170,9 +170,10 @@ function RegisterPage(props)
  const onSubmit=e=>{
 e.preventDefault();
 async function createUser(){
-fetch("http://portfolio-backend-tur1.com/api/users/createUser/"+username+"/"+password,
-{method:'PUT',
-headers:{'Content-Type':'application/json'}
+fetch("http://portfolio-backend-tur1.com/api/users/createUser/",
+{method:'POST',
+headers:{'Content-Type':'application/json'  },  ,credentials:'include',
+      body:JSON.stringify({parameter1:username,parameter2:password})}
 
 });
 }
@@ -190,12 +191,13 @@ return(
     <form onSubmit={onSubmit}
     >
       <label className='bg-amber-400 text-2xl'>username 
-      <input className='bg-gray-500 text-2xl ' type='text' onChange={()=>{setUsername(e.currentTarget.value);}}></input>
+      <input className='bg-gray-500 text-2xl ' type='text' onChange={e=>setUsername(e.currentTarget.value)}></input>
      </label>
       <br></br>
       <br></br>
-      <label className='bg-violet-600 text-2xl' >think of a strong password that you can remember;
-        <input className='bg-gray-500 text-2xl ' onChange={()=>{setPassword(e.currentTarget.value)}}></input>
+        <label>think of a strong password that you can remember</label>
+      <label className='bg-violet-600 text-2xl' >password
+        <input className='bg-gray-500 text-2xl ' type='password' onChange={e=>setPassword(e.currentTarget.value)}></input>
 
       </label>
       <br></br>
