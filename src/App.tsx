@@ -5,11 +5,10 @@ import Navbar from './navbar.jsx';
 import NavbarButton from './navbarbutton.jsx';
 import Gallery from './imggallery.jsx';
 import DevLog from './devlog.jsx';
-import {useCreateEntity} from '@replyke/react-js'
+
  //import { ThreadedCommentSection, type Threaded  StyleCallbacks } from './src\components\comments-threaded'
 //import { ThreadedCommentSection } from './components/comments-threaded';
-import {ReplykeProvider} from '@replyke/react-js';
-import { CommentsFeed, ThreadedCommentSection } from '@replyke/comments-thread-react-js';
+
 //import { ThreadedCommentSection } from 'components/comments-threaded';
 
 import { register } from 'node:module';
@@ -79,7 +78,7 @@ return(
  <div>
  <h1 className='text-center text-5xl m-10 text-indigo-400' >About</h1>
  <p className='text-indigo-400'>
-  Hello. I am learning webdevelopment and I have started to make this website to improve my skills. it will slowly improve over time. It uses React framework for the components. It uses Vite for building the site. I also draw so I added an gallery as chalenge. The chat currently works but takes a while to start o. Time will tell how it will pan out. the free plan. I am hoping to make it a sort of showcase for my stuff and what I have done. Time will tell how it will pan out.
+  Hello. I am learning webdevelopment and I have started to make this website to improve my skills. it will slowly improve over time. It uses React framework for the components. It uses Vite for building the site. I also draw so I added an gallery as chalenge. The chat currently works but takes a while to start. Time will tell how it will pan out.I am hoping to make it a sort of showcase for my stuff and what I have done. Time will tell how it will pan out.
 
  </p>
 </div>)
@@ -99,20 +98,7 @@ return <div>
 }
 
 
-function createPostP() 
-{
-const createEntity=useCreateEntity();
-const handleCreate=async() =>{
-  const entity=await createEntity({
-    title: "myfirst post",
-    content:"post content here",
-    keywords:["blog","tutorial"],
-    metadata: {category: "blog"}
-  });
-  console.log("entity created:",entity.id);
-  return (<button onClick={handleCreate}>create post</button>)
-}
-}
+
 
 
 function LoginPage(props)
@@ -152,7 +138,9 @@ tryLogin();
   <br></br>
   <button className='bg-green-400 text-2xl'><p className='text-2xl' type='submit'></p>login</button>
 </form>
-<button className='bg-pink-500 text-2xl' onClick={()=>{fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie",{credentials:'include',method:'GET'}).then((d)=>{
+<button className='bg-pink-500 text-2xl' 
+onClick={()=>{fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie",
+{credentials:'include',method:'GET'}).then((d)=>{
 console.log(d);
 })}}>test cookie</button>
 <br></br>
@@ -168,6 +156,7 @@ function RegisterPage(props)
   const [password,setPassword]=useState(null);
   const [repeatedPassword,setRepeatPassword]=useState(null);
  const onSubmit=e=>{
+    alert("trying to create account");
 e.preventDefault();
 async function createUser(){
 fetch("https://portfolio-backend-tur1.onrender.com/api/users/createUser",
@@ -294,20 +283,6 @@ return(
 
 </div>)
 }
-function DiscussionPage()
-{
-
-
-
-return(
-<>
-
-<CommentsFeed></CommentsFeed>
-<ThreadedCommentSection>
-
-</ThreadedCommentSection>
-</>)
-}
 
 
 function App() {
@@ -317,10 +292,7 @@ const [password,setPassword]=useState("");
 const [cookies,setCookie]= useCookies(['userToken']);
 
   return (
-      <CookiesProvider>
-       <ReplykeProvider projectId="a25ef6a0-5cda-4da5-bdac-5943af8113c9"
-      > {
-      <div>
+          <div>
        <Navbar changefunc={setPage}></Navbar>
       {
         currentPage==0 && <Gallery></Gallery>
@@ -348,9 +320,7 @@ const [cookies,setCookie]= useCookies(['userToken']);
       
       <CookieThing></CookieThing>
       </div>
-      }
-          </ReplykeProvider>
-          </CookiesProvider>
+       
    
   )
 }

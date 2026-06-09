@@ -5,6 +5,17 @@ function DevLog()
       <div>
        <h1 className='text-center text-5xl m-10 text-indigo-400' >Devlog</h1>
         <div>
+           <h2 className='text-teal-400'>Nominal progress report</h2>
+           <p className='text-indigo-400'> The account creation works now and shows the username in chat. 
+          So for the first time the site is doing something useful with the frontend, backend and database all communicating. 
+          A mile stone in a long and rocky road. The next part will focus on improving the frontend. 
+          Currently the frontend is not giving any feedback on any actions those make the experience quite bare.
+          </p>
+           <br></br>
+           <br></br>
+           <p>9.6.2026</p>
+        </div>
+        <div>
           <h2 className="text-teal-400">A momentous event has transpired</h2>
             <p className="text-indigo-400"> The chat works now. WOOOOOO! The sites backend is on a site named render which has a completely free tier
         which I am a sucker for. The chat section can now read the chat and send messages. Major progress. Alltough it does just show it as JSON which is rather ugly and the message can't be sent with enter and login functionality from the backend is not implemented. Damn you selfcritisism I am doing internet magic leave me be. The next part will be making the chat presentable and make the login work. I wonder how many vulnerabilities the chat leaves for the server. I really ought to sanitize the inputs. Altough form over function is quite a popular sentiment. </p><br></br><p>17.4.2026</p>
