@@ -5,9 +5,15 @@ import {useState,useRef,useEffect} from 'react';
 function Navbar(props)
 {
  const [username,setUsername]=useState("anonymous");
-//  useEffect(()=>{ fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie",
-// {credenttials:'include',method:'GET'}).then((d)=>{setUsername(d);
-// }),[]})
+  useEffect(()=>{const timer =setTimeout(() => {
+   fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie",
+ {credentials:'include',method:'GET'}).then((d)=>
+   {
+     d!=null&& setUsername(d.userName);
+
+    })
+
+  }, 3000)},[]);
 
 
 return (
