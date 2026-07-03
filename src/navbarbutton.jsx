@@ -1,6 +1,14 @@
+import React from 'react';
 
 function NavbarButton(props)
 {
-return (<button className='p-2 ml-2 mr-2 m-1.5 rounded-1xl bg-indigo-400 w-30 h-13 ' onClick={()=>props.changefunc(props.num)}>{props.Text}</button>)
+  return (
+    <button 
+      className='px-4 py-2 mx-1 rounded-lg bg-white text-indigo-600 hover:bg-indigo-50 transition duration-150 text-sm border border-transparent hover:border-indigo-300'
+      onClick={() => props.changefunc(props.num)}
+    >
+      {props.Text}
+    </button>
+  );
 }
 export default NavbarButton

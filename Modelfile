@@ -1,0 +1,8 @@
+
+FROM gemma4:latest
+
+# Allows the model to output as many tokens as it needs to finish its thought
+PARAMETER num_predict -1
+
+# Optional: Expand context window to keep a longer history in mind
+PARAMETER num_ctx 8192

@@ -1,5 +1,4 @@
-
-import NavbarButton from "./navbarbutton.jsx"
+import NavbarButton from "./navbarbutton.jsx";
 import {useState,useRef,useEffect} from 'react';
 
 function Navbar(props)
@@ -17,18 +16,23 @@ function Navbar(props)
 
 
 return (
-  
-<div className='h-16 flex pr-96 bg-gray-500 ' >
+  <div className='h-16 flex pr-96 bg-slate-900 items-center border-b border-slate-700'>
+    {/* Group 1: All Nav Buttons - Limited width/spacing area */}
+    <div className='flex mr-auto'>
 <NavbarButton Text="About" num={1} changefunc={props.changefunc}></NavbarButton>
 <NavbarButton Text="Gallery" num={0} changefunc={props.changefunc}> </NavbarButton>
-
 <NavbarButton Text="Devlog" num={2}changefunc={props.changefunc}></NavbarButton>  
-<NavbarButton Text="blog" num={3}changefunc={props.changefunc}></NavbarButton>  
-<NavbarButton Text="login" num={4}changefunc={props.changefunc}></NavbarButton>
-<NavbarButton Text="register" num={5}changefunc={props.changefunc}></NavbarButton>
-<NavbarButton Text="chat" num={6}changefunc={props.changefunc}></NavbarButton>
-<button className='p-2 ml-2 mr-2 m-1.5 rounded-1xl bg-indigo-400 w-30 h-13'>
-{username}</button>
+<NavbarButton Text="Forum" num={3}changefunc={props.changefunc}></NavbarButton>  
+<NavbarButton Text="Login" num={4}changefunc={props.changefunc}></NavbarButton>
+<NavbarButton Text="Register" num={5}changefunc={props.changefunc}></NavbarButton>
+<NavbarButton Text="Chat" num={6}changefunc={props.changefunc}></NavbarButton>
+
+      <button className='p-2 rounded-lg ml-3 bg-slate-800 text-sm hover:bg-slate-700 transition duration-150'>
+        {username}
+      </button>
+  </div>
 </div>
-)}
+)
+}
 export default Navbar
+
