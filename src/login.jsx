@@ -31,7 +31,7 @@ function LoginPage(props) {
 
     return (
         <div className="min-h-screen w-full p-8 bg-indigo-400 shadow-lg rounded-xl">
-            <h1 className='text-4xl mb-8 text-center'>Login</h1>
+            <h1 className='text-4xl mb-8 text-center font-extrabold text-white'>Login</h1>
             
             <form onSubmit={onSubmit}>
                 {/* Username Field Group */}
@@ -39,7 +39,7 @@ function LoginPage(props) {
                     <label htmlFor="username" className="block text-lg font-medium text-gray-700 mb-2">Username</label>
                     <input 
                         id="username"
-                        className='w-full p-3 border bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
+                        className='w-full p-3 text-white border placeholder-amber-100/80 bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
                         type='text' 
                         onChange={e => setUsername(e.currentTarget.value)} 
                         placeholder="Enter your username"
@@ -52,7 +52,7 @@ function LoginPage(props) {
                     <label htmlFor="password" className="block text-lg font-medium text-gray-700 mb-2">Password</label>
                     <input 
                         id="password"
-                        className='w-full p-3 border bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
+                        className='w-full p-3 border text-white placeholder-amber-100/80 bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
                         type='password' 
                         onChange={e => setPassword(e.currentTarget.value)} 
                         placeholder="Enter your password"
@@ -71,7 +71,7 @@ function LoginPage(props) {
 
             <div className="mt-8 flex justify-center">
                 <button 
-                    className='px-6 py-2 text-lg bg-pink-500 hover:bg-pink-600 rounded-full shadow transition duration-150'
+                    className='px-6 py-2 text-lg text-white bg-pink-500 hover:bg-pink-600 rounded-full shadow transition duration-150'
                     onClick={() => {
                         fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie",
                               { credentials: 'include', method: 'GET' })

@@ -16,7 +16,7 @@ function Navbar(props)
 
 
 return (
-  <div className='h-16 flex pr-96 bg-slate-900 items-center border-b border-slate-700'>
+  <div className='h-16 flex pr-96 bg-slate-700 items-center  '>
     {/* Group 1: All Nav Buttons - Limited width/spacing area */}
     <div className='flex mr-auto'>
 <NavbarButton Text="About" num={1} changefunc={props.changefunc}></NavbarButton>
@@ -27,7 +27,7 @@ return (
 <NavbarButton Text="Register" num={5}changefunc={props.changefunc}></NavbarButton>
 <NavbarButton Text="Chat" num={6}changefunc={props.changefunc}></NavbarButton>
 
-      <button className='p-2 rounded-lg ml-3 bg-slate-800 text-sm hover:bg-slate-700 transition duration-150'>
+      <button className='p-2 rounded-lg ml-3  text-sm hover:bg-slate-700 transition duration-150 text-slate-200'>
         {username}
       </button>
   </div>

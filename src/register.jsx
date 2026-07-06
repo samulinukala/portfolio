@@ -30,7 +30,7 @@ function RegisterPage(props) {
                 <label htmlFor="username" className="block text-lg font-medium text-gray-700 mb-2">Username</label>
                 <input
                     id="username"
-                    className='w-full p-3 border bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl placeholder-amber-100/80'
+                    className='w-full p-3 border text-white bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl placeholder-amber-100/80'
                     type='text'
                     onChange={e => setUsername(e.currentTarget.value)}
                     placeholder="Enter your desired username"
@@ -43,7 +43,7 @@ function RegisterPage(props) {
                 <label htmlFor="password" className="block text-lg font-medium text-gray-700 mb-2">Password</label>
                 <input
                     id="password"
-                    className='w-full p-3 border bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl placeholder-amber-100/80'
+                    className='w-full p-3 border bg-gray-600 text-white border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl placeholder-amber-100/80'
                     type='password'
                     onChange={e => setPassword(e.currentTarget.value)}
                     placeholder="Think of a strong password"

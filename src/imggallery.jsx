@@ -14,7 +14,7 @@ import {useEffect} from 'react';
 
 function Gallery()
 {
-  return(<div className='bg-gray-900 min-h-screen p-8'> {/* Added background and padding for better overall feel */}
+  return(<div className='bg-gray-700 min-h-screen p-8'> {/* Added background and padding for better overall feel */}
  <h1 className='text-center text-5xl m-4 mb-10 text-indigo-400' >Gallery</h1>
     
     <DriveImageRenderList />
