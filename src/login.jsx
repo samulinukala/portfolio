@@ -12,18 +12,28 @@ function LoginPage(props) {
         setIsLoading(true);
 
         try {
-            await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login",
+            const response = await fetch("https://portfolio-backend-tur1.onrender.com/api/users/login",
                   {
                       method: 'POST',
-                      body: JSON.stringify({ username: username, password: password }), // Use actual variable names if backend expects them
+                      body: JSON.stringify({ username: username, password: password }), 
                       credentials: 'include',
                       headers: { 'Content-Type': 'application/json' }
                   });
-            alert("Login attempt successful (check console for response)");
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                // Handle HTTP errors like 401 Unauthorized
+                throw new Error(data.message || `Login failed with status: ${response.status}`);
+            }
+
+            // Success path (assuming backend returns user info or a token on success)
+            console.log("Login successful:", data);
+            alert(`Success! Welcome back. Check console for response details.`);
 
         } catch (error) {
             console.error("Login error:", error);
-            alert("Login failed. Check the console for details.");
+            alert(`Login failed: ${error.message || "Please check your credentials and try again."}`);
         } finally {
             setIsLoading(false);
         }
@@ -42,7 +52,7 @@ function LoginPage(props) {
                         className='w-full p-3 text-white border placeholder-amber-100/80 bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
                         type='text' 
                         onChange={e => setUsername(e.currentTarget.value)} 
-                        placeholder="Enter your username"
+                        placeholder="Enter your username please"
                         required
                     />
                 </div>

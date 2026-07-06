@@ -12,13 +12,6 @@
     "tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "@replyke/comments-social-core": "^6.0.8",
-    "@replyke/comments-thread-react-js": "^5.0.19",
-    "@replyke/comments-threaded-react-js": "^6.0.8",
-    "@replyke/core": "^6.1.1",
-    "@replyke/js": "^5.0.0",
-    "@replyke/react-js": "^6.1.1",
-    "@replyke/ui-core-react-js": "^6.1.1",
     "@tailwindcss/vite": "^4.1.18",
     "axios": "^1.15.1",
     "bcrypt": "^6.0.0",
@@ -45,5 +38,10 @@
     "globals": "^16.5.0",
     "typescript": "^5.9.3",
     "vite": "^7.3.0"
+  },
+  "allowScripts": {
+    "bcrypt@6.0.0": true,
+    "esbuild@0.28.1": true,
+    "msw@2.12.10": true
   }
 }
