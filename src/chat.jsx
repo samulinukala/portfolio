@@ -12,7 +12,7 @@ async function getChatLog() {
 function Chat() {
   const [chatData, setChatData] = useState([]);
   const [message, setMessage] = useState('');
-  const messagesEndRef = useRef(null);
+  const messagesTopRef = useRef(null);
 
   const handleInputChange = (event) => { setMessage(event.target.value); }
 
@@ -26,9 +26,9 @@ function Chat() {
     return () => clearInterval(chatTimer);
   }, []);
 
-  // Auto-scroll to bottom of chat when new messages arrive
+  // Auto-scroll to top of chat when new messages arrive
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesTopRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatData]);
 
   const handleSendMessage = () => {
@@ -62,7 +62,7 @@ function Chat() {
       {/* Header */}
       <div className="px-6 py-4 bg-slate-700 flex items-center justify-between ">
         <div>
-          <h1 className="text-xl font-bold text-white tracking-wide">Live Sandbox Chat</h1>
+          <h1 className="text-xl font-bold text-white tracking-wide">Live Chat</h1>
           <p className="text-xs text-slate-400 mt-0.5 flex items-center gap-1.5">
           
           </p>
@@ -84,12 +84,15 @@ function Chat() {
             <svg className=" w-10 h-10 animate-pulse text-indigo-500/50"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path  strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
-            <p className="text-sm">Connecting or waiting for messages...</p>
+            <p className="text-sm">Connecting ...</p>
           </div>
         ) : (
           chatData.map((m, index) => (
-            <div key={index} className="flex flex-col space-y-1">
-                 <div ref={messagesEndRef} />
+            <div
+              key={index}
+              ref={index === 0 ? messagesTopRef : null}
+              className="flex flex-col space-y-1"
+            >
               <div className="flex items-center space-x-2">
                 <span className={`text-xs font-semibold ${getUsernameColor(m.un)}`}>
                   {m.un || 'Anonymous'}

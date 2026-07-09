@@ -52,7 +52,7 @@ function LoginPage(props) {
                         className='w-full p-3 text-white border placeholder-amber-100/80 bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
                         type='text' 
                         onChange={e => setUsername(e.currentTarget.value)} 
-                        placeholder="Enter your username please"
+                        placeholder="username"
                         required
                     />
                 </div>
@@ -65,7 +65,7 @@ function LoginPage(props) {
                         className='w-full p-3 border text-white placeholder-amber-100/80 bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
                         type='password' 
                         onChange={e => setPassword(e.currentTarget.value)} 
-                        placeholder="Enter your password"
+                        placeholder="password"
                         required
                     />
                 </div>
