@@ -27,9 +27,11 @@ const Forum = () => {
     // Removed interval fetching for better reliability, fetch only once on mount
   }, []);
 
-  const handleTopicSelect = (topicName) => {
+  const handleTopicSelect = async(topicName) => {
     setSelectedTopic(topicName);
     // Change view to the post list/detail view when a topic is selected
+    const tmpPosts=(await fetch("https://portfolio-backend-tur1.onrender.com/api/forum/retrivePostByTopic/"+topicName)).json();
+    setPosts(tmpPosts);
     setRenderView(1);
   };
 
@@ -39,8 +41,7 @@ const Forum = () => {
       <div className="bg-amber-600 p-6 rounded-lg shadow-md">
         <h2 className="text-2xl border-b pb-2 mb-4">Discussion Topics</h2>
         {/* Forum content will go here */}
-        <p>This is a place holder</p>
-      </div>
+      
 
       {renderView === 0 && ( // Displaying topic list view
         <div>
@@ -67,7 +68,10 @@ const Forum = () => {
           <h3 className="text-xl mb-4">Posts in: {selectedTopic || "Select a topic"}</h3>
            <button onClick={() => setRenderView(0)} className="mb-4 bg-gray-200 p-2 rounded">← Back to Topics</button>
          <p>list of headers of posts (Displaying content related to '{selectedTopic}')</p>
-          {/* In a real app, you would fetch posts here based on selectedTopic */}
+         {posts.map((post, index) =>{ 
+          <button key={index}                 className="block w-full bg-indigo-200 hover:bg-indigo-300 text-left p-3 mb-2 rounded cursor-pointer"
+          >{post.title}</button>
+         })}
     </div>
       )}
 
@@ -79,6 +83,7 @@ const Forum = () => {
         </div>
     
         )}
+  </div>
   </div>
   )
 }
