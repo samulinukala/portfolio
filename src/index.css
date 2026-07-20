@@ -1,8 +1,26 @@
 @import "tailwindcss";
 body {
-  background-color: #374151
-; /* Dark gray background */
+  background-color: 
+
+ 
 }
+ :root {
+    --primary-color: #4f46e5; /* Example primary color */
+    --secondary-color: #2d3748;
+    --text-color: #1a202c;
+    --background-color: #374151;
+    /* Add more as needed */
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+  }
+; /* Dark gray background */
 button
 {
 background-color: #5c6afa;

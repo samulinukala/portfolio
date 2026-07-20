@@ -4,6 +4,18 @@ function DevLog()
     return(
       <div >
        <h1 className='text-center text-5xl m-10 text-indigo-400' >Devlog</h1>
+       <div className="bg-violet-900">
+        <h2 className="text-teal-400">
+        Forum progress
+        </h2>
+        <p className="text-indigo-400">
+          The backend was quite easy to make work on a few commits and it got going. The front end was quite a bit more difficult to get going. The main problem was how to design the post data 
+          to be usable for the ui. I had to make desions on what fields to have on the part that goes into the database. I settled on having the topic stored in the post data. So there 
+          are no seperate categories stored on the database just on the posts. This should be improved by making the topics fixed to specific ones instead of being more free form. As for the 
+          next part of this project I am not sure. I feel I should maybe work on adding a moderation system for the backend or maybe think of something else I have an enviroment to play in now
+           "<br></br><br></br>
+        </p><p className="text-white">20.7.2026</p><br></br>
+       </div>
         <div className="bg-fuchsia-900">
           <h2 className="text-teal-400"> AI and Ui</h2>
           <p className="text-indigo-400">I have tried using a ai model for coding. I tried multiple different models. 
