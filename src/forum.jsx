@@ -466,6 +466,7 @@ const Forum = () => {
                 <label className="block text-slate-300 font-semibold text-sm mb-2">Post Title</label>
                 <input 
                   type="text" 
+                  maxLength={20}
                   value={postHeader}
                   onChange={e => setPostHeader(e.currentTarget.value)} 
                   required 
@@ -479,6 +480,7 @@ const Forum = () => {
                 <label className="block text-slate-300 font-semibold text-sm mb-2">Post Content</label>
                 <textarea 
                   value={postText}
+                  maxLength={500}
                   onChange={e => setPostText(e.currentTarget.value)} 
                   required 
                   name="text" 

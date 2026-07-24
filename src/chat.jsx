@@ -112,6 +112,7 @@ function Chat() {
         <form onSubmit={handleSendMessage} className="max-w-6xl mx-auto flex items-center gap-2 p-4">
           <input
             type="text"
+            maxLength={70}
             className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-4 py-3.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all"
             placeholder="Type your message..."
             value={message}

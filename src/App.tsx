@@ -14,12 +14,6 @@ const backendUrl = "https://portfolio-backend-tur1.onrender.com";
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-async function getAboutData() {
-  const url = 'https://gist.githubusercontent.com/hamaoc/57abbf22452c71b735f9fad3bc38ea7c/raw/f4bec875c7ab713d5e281e78783b116cdf4c981c/AboutPage.txt';
-  const response = await fetch(url);
-  const data = await response.text();
-  return (data);
-}
 
 function CookieThing() {
   const [cookie, setCookie] = useCookies(['showCookies']);

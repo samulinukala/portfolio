@@ -49,6 +49,7 @@ function LoginPage(props) {
                     <label htmlFor="username" className="block text-lg font-medium text-gray-700 mb-2">Username</label>
                     <input 
                         id="username"
+                        maxLength={18}
                         className='w-full p-3 text-white border placeholder-amber-100/80 bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
                         type='text' 
                         onChange={e => setUsername(e.currentTarget.value)} 
@@ -62,6 +63,7 @@ function LoginPage(props) {
                     <label htmlFor="password" className="block text-lg font-medium text-gray-700 mb-2">Password</label>
                     <input 
                         id="password"
+                        maxLength={31}
                         className='w-full p-3 border text-white placeholder-amber-100/80 bg-gray-600 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 text-xl' 
                         type='password' 
                         onChange={e => setPassword(e.currentTarget.value)} 
