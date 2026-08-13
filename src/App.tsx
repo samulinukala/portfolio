@@ -38,6 +38,8 @@ function CookieThing() {
 }
 
 function AboutPage() {
+  //starting server
+  fetch("https://portfolio-backend-tur1.onrender.com/");
   return (
     <div>
       <h1 className='text-center text-5xl m-10 text-indigo-400' >About</h1>
