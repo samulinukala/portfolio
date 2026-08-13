@@ -4,15 +4,22 @@ import {useState,useRef,useEffect} from 'react';
 function Navbar(props)
 {
  const [username,setUsername]=useState("anonymous");
-  useEffect(()=>{const timer =setTimeout(() => {
-   fetch("https://portfolio-backend-tur1.onrender.com/api/test/readCookie",
- {credentials:'include',method:'GET'}).then((d)=>
-   {
-     d!=null&& setUsername(d.userName);
-
-    })
-
-  }, 3000)},[]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      fetch("https://portfolio-backend-tur1.onrender.com/api/users/getLoggedInUser", {
+        credentials: 'include',
+        method: 'GET'
+      })
+        .then((res) => res.json())
+        .then((d) => {
+          if (d != null) {
+            setUsername(d.userName || d.username || d);
+          }
+        })
+        .catch((err) => console.error("Error fetching user name:", err));
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
 
 return (
