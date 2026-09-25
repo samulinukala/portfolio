@@ -252,8 +252,7 @@ function DevLog() {
                     <span className="text-xs font-mono text-white/90 bg-black/30 border border-white/10 px-3 py-1 rounded-lg">
                       🗓️ {entry.date}
                     </span>
-                  </div>Hello. I am learning webdevelopment and I have started to make this website to improve my skills. it will slowly improve over time. It uses React framework for the components. It uses Vite for building the site. I also draw so I added an gallery as chalenge. The chat currently works but takes a while to start. Time will tell how it will pan out.I am hoping to make it a sort of showcase for my stuff and what I have done. Time will tell how it will pan out.
-
+                  </div>
                   {/* Card Content */}
                   <div className="space-y-4 text-indigo-100 text-base leading-relaxed font-light">
                     {/* First Paragraph Always Visible */}
