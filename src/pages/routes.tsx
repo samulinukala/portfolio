@@ -24,6 +24,17 @@ export const AppRoutes = ({ cookies, setCookie, onLoginSuccess }: AppRoutesProps
       <Route path="/login" element={<LoginPage cookie={cookies} setCookie={setCookie} onLoginSuccess={onLoginSuccess} />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/chat" element={<Chat />} />
+
+      {/* Case-insensitive / capitalized route redirects */}
+      <Route path="/About" element={<Navigate to="/about" replace />} />
+      <Route path="/Gallery" element={<Navigate to="/gallery" replace />} />
+      <Route path="/Devlog" element={<Navigate to="/devlog" replace />} />
+      <Route path="/DevLog" element={<Navigate to="/devlog" replace />} />
+      <Route path="/Forum" element={<Navigate to="/forum" replace />} />
+      <Route path="/Login" element={<Navigate to="/login" replace />} />
+      <Route path="/Register" element={<Navigate to="/register" replace />} />
+      <Route path="/Chat" element={<Navigate to="/chat" replace />} />
+
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
