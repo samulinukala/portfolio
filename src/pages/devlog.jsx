@@ -149,7 +149,7 @@ function DevLog() {
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedEntries, setExpandedEntries] = useState({});
 
-  const categories = ['All', ...new Set(LOG_ENTRIES.map(e => e.category))];
+  const categories = ['All', ...new Set(LOG_ENTRIES.reverse().map(e => e.category))];
 
   const toggleExpand = (id) => {
     setExpandedEntries(prev => ({
@@ -158,7 +158,7 @@ function DevLog() {
     }));
   };
 
-  const filteredEntries = LOG_ENTRIES.filter(entry => {
+  const filteredEntries = LOG_ENTRIES.reverse().filter(entry => {
     const matchesCategory = selectedCategory === 'All' || entry.category === selectedCategory;
     const matchesSearch = searchQuery === '' || 
       entry.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
