@@ -120,6 +120,28 @@ const LOG_ENTRIES = [
       "As for the next part of this project I am not sure. I feel I should maybe work on adding a moderation system for the backend or maybe think of something else I have an environment to play in now."
     ]
   }
+  {
+    id: 'entry-7',
+    title: 'Architecture and design improvements',
+    date: '28.9.2026',
+    category: 'Architecture & frontend',
+    icon: '🏚',
+    theme: {
+      cardBg: 'from-rose-950/90 via-pink-900/80 to-fuchsia-950/90',
+      border: 'border-rose-500/40 hover:border-rose-300',
+      tagBg: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+      titleColor: 'text-rose-300',
+      glow: 'shadow-rose-900/50',
+      dotBg: 'bg-rose-400 ring-rose-500/50'
+    },
+    paragraphs: [
+      "I have read a book about react application arhitecture. I have been implementing ideas from it. ",
+      "the improvements so far include the actual CI/CD pipeline for the site. URL routuing now works so parts of the site can be directly linked.",
+      "I currently work on adding precommit checks and transition the front end to use more shadcn components. To be more consistent.",
+      "Afterwards the focus will be on adding playwright testing to the site so I can learn more about testing and autonomisation.",
+      "The site has changed url from samulinukala.github.io to samulinukala.github.io/portfolio. This is part of the build process and seperate repository for hosting will be removed since CI/CD does that now."
+    ]
+  }
 ];
 
 function DevLog() {
