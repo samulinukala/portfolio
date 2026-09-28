@@ -5,10 +5,10 @@ name: CI/CD Pipeline for Vite React App
 on:
   push:
     branches:
-      - main
+      - ["master"]
   pull_request:
     branches:
-      - main
+      - ["master"]
 
 jobs:
   build:
