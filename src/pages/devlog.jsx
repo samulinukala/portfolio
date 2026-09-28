@@ -183,10 +183,7 @@ function DevLog() {
             <div className="text-2xl font-bold text-violet-300">{LOG_ENTRIES.length}</div>
             <div className="text-xs text-indigo-300/70">Total Logs</div>
           </div>
-          <div className="bg-fuchsia-950/40 border border-fuchsia-500/20 rounded-xl p-3 backdrop-blur-sm">
-            <div className="text-2xl font-bold text-fuchsia-300">July 2026</div>
-            <div className="text-xs text-indigo-300/70">Latest Entry</div>
-          </div>
+
           <div className="bg-emerald-950/40 border border-emerald-500/20 rounded-xl p-3 backdrop-blur-sm">
             <div className="text-2xl font-bold text-emerald-300">Node.js</div>
             <div className="text-xs text-indigo-300/70">Backend</div>
