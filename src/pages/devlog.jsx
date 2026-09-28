@@ -151,7 +151,7 @@ function DevLog() {
           Devlog
         </h1>
         <p className="text-indigo-200 text-lg max-w-2xl mx-auto font-light">
-         Hear from the horses mouth how the project is progressing and the future steps for it.
+        Follow the projects progression.
         </p>
 
         {/* Stats Summary Bar */}
