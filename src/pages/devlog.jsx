@@ -119,7 +119,7 @@ const LOG_ENTRIES = [
       "The backend was quite easy to make work on a few commits and it got going. The front end was quite a bit more difficult to get going. The main problem was how to design the post data to be usable for the ui. I had to make decisions on what fields to have on the part that goes into the database. I settled on having the topic stored in the post data. So there are no separate categories stored on the database just on the posts. This should be improved by making the topics fixed to specific ones instead of being more free form.",
       "As for the next part of this project I am not sure. I feel I should maybe work on adding a moderation system for the backend or maybe think of something else I have an environment to play in now."
     ]
-  }
+  },
   {
     id: 'entry-7',
     title: 'Architecture and design improvements',
