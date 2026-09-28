@@ -1,86 +1,29 @@
 import React, { useState } from 'react';
 
 const LOG_ENTRIES = [
+  
   {
     id: 'entry-1',
-    title: 'Forum progress',
-    date: '20.7.2026',
-    category: 'Backend & UI',
-    icon: '💬',
+    title: 'Separating App.tsx to multiple parts, cookies and login progress',
+    date: '13.3.2026',
+    category: 'Architecture',
+    icon: '⚡',
     theme: {
-      cardBg: 'from-violet-950/90 via-purple-900/80 to-indigo-950/90',
-      border: 'border-violet-500/40 hover:border-violet-300',
-      tagBg: 'bg-violet-500/20 text-violet-300 border-violet-500/30',
-      titleColor: 'text-violet-300',
-      glow: 'shadow-violet-900/50',
-      dotBg: 'bg-violet-400 ring-violet-500/50'
+      cardBg: 'from-cyan-950/90 via-teal-900/80 to-blue-950/90',
+      border: 'border-cyan-500/40 hover:border-cyan-300',
+      tagBg: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
+      titleColor: 'text-cyan-300',
+      glow: 'shadow-cyan-900/50',
+      dotBg: 'bg-cyan-400 ring-cyan-500/50'
     },
     paragraphs: [
-      "The backend was quite easy to make work on a few commits and it got going. The front end was quite a bit more difficult to get going. The main problem was how to design the post data to be usable for the ui. I had to make decisions on what fields to have on the part that goes into the database. I settled on having the topic stored in the post data. So there are no separate categories stored on the database just on the posts. This should be improved by making the topics fixed to specific ones instead of being more free form.",
-      "As for the next part of this project I am not sure. I feel I should maybe work on adding a moderation system for the backend or maybe think of something else I have an environment to play in now."
+      "Currently the backend can connect to the database and can compare given text password to the stored hash and return true if the password is correct. It can also compare if username exists and create users. So basic CRUD operations work on the local version. It is quite imperative to soon find a hosting solution for the node backend so I can get to working on connecting the backend.",
+      "I finally realized that the App file had grown unwieldy and became too long. So components were moved from it to separate files. While making this first log I can already tell I want a better solution for writing it.",
+      "The current login system at the time is planned to use cookies for storing the user login. So a cookie disclosure is added to site. Currently the close disclosure button doesn't work so it will be disabled for the build. The login forms seem quite daunting or the example code for it was overly complicated. Regardless it has to be designed. The current log in screen is quite ugly. I should find literature on color theory."
     ]
   },
   {
     id: 'entry-2',
-    title: 'AI and UI',
-    date: '6.7.2026',
-    category: 'AI & Workflow',
-    icon: '🤖',
-    theme: {
-      cardBg: 'from-fuchsia-950/90 via-pink-900/80 to-rose-950/90',
-      border: 'border-fuchsia-500/40 hover:border-fuchsia-300',
-      tagBg: 'bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/30',
-      titleColor: 'text-fuchsia-300',
-      glow: 'shadow-fuchsia-900/50',
-      dotBg: 'bg-fuchsia-400 ring-fuchsia-500/50'
-    },
-    paragraphs: [
-      "I have tried using an AI model for coding. I tried multiple different models. As with all of this site I needed it to be free. So I have started using Gemma4 and it is making website coding much more fun. I feel I lack a bit of working knowledge of webdevelopment and it does patch my expertise eerily well. It is quite manual still as I have to guide the model quite tightly. Most problems came from the model having too short of a response. I made a config file that made it have unlimited response length. That made it quite useful.",
-      "On the UI front I have been working on improving the chat and gallery with AI; it took a few days. Quite fast. I am worried about technical debt that might accumulate but using a local model does ease my nerves a bit. I do love local models at least.",
-      "The next hurdle will continue work on the JWT token reading and usage for forum. That will make the UI more responsive as it will show if the user is logged in. The forum page has a placeholder currently. I might look back at the replyke components but it might be more trouble than it is worth trying to modify it to fit my purpose. The register page could use a verification for the password when making an account and both could use regex verification I guess that will be on the backburner for now."
-    ]
-  },
-  {
-    id: 'entry-3',
-    title: 'Nominal progress report',
-    date: '9.6.2026',
-    category: 'Milestones',
-    icon: '✨',
-    theme: {
-      cardBg: 'from-emerald-950/90 via-teal-900/80 to-emerald-900/90',
-      border: 'border-emerald-500/40 hover:border-emerald-300',
-      tagBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
-      titleColor: 'text-emerald-300',
-      glow: 'shadow-emerald-900/50',
-      dotBg: 'bg-emerald-400 ring-emerald-500/50'
-    },
-    paragraphs: [
-      "The account creation works now and shows the username in chat. So for the first time the site is doing something useful with the frontend, backend and database all communicating. A milestone in a long and rocky road.",
-      "The next part will focus on improving the frontend. Currently the frontend is not giving any feedback on any actions which makes the experience quite bare."
-    ]
-  },
-  {
-    id: 'entry-4',
-    title: 'A momentous event has transpired',
-    date: '17.4.2026',
-    category: 'Chat & Backend',
-    icon: '🚀',
-    theme: {
-      cardBg: 'from-amber-950/90 via-orange-900/80 to-yellow-950/90',
-      border: 'border-amber-500/40 hover:border-amber-300',
-      tagBg: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-      titleColor: 'text-amber-300',
-      glow: 'shadow-amber-900/50',
-      dotBg: 'bg-amber-400 ring-amber-500/50'
-    },
-    paragraphs: [
-      "The chat works now. WOOOOOO! The site's backend is on a site named Render which has a completely free tier which I am a sucker for. The chat section can now read the chat and send messages. Major progress.",
-      "Although it does just show it as JSON which is rather ugly and the message can't be sent with enter and login functionality from the backend is not implemented. Damn you self-criticism I am doing internet magic leave me be.",
-      "The next part will be making the chat presentable and make the login work. I wonder how many vulnerabilities the chat leaves for the server. I really ought to sanitize the inputs. Although form over function is quite a popular sentiment."
-    ]
-  },
-  {
-    id: 'entry-5',
     title: 'Backend progress',
     date: '17.4.2026',
     category: 'Backend',
@@ -100,23 +43,81 @@ const LOG_ENTRIES = [
     ]
   },
   {
-    id: 'entry-6',
-    title: 'Separating App.tsx to multiple parts, cookies and login progress',
-    date: '13.3.2026',
-    category: 'Architecture',
-    icon: '⚡',
+    id: 'entry-3',
+    title: 'A momentous event has transpired',
+    date: '17.4.2026',
+    category: 'Chat & Backend',
+    icon: '🚀',
     theme: {
-      cardBg: 'from-cyan-950/90 via-teal-900/80 to-blue-950/90',
-      border: 'border-cyan-500/40 hover:border-cyan-300',
-      tagBg: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30',
-      titleColor: 'text-cyan-300',
-      glow: 'shadow-cyan-900/50',
-      dotBg: 'bg-cyan-400 ring-cyan-500/50'
+      cardBg: 'from-amber-950/90 via-orange-900/80 to-yellow-950/90',
+      border: 'border-amber-500/40 hover:border-amber-300',
+      tagBg: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+      titleColor: 'text-amber-300',
+      glow: 'shadow-amber-900/50',
+      dotBg: 'bg-amber-400 ring-amber-500/50'
     },
     paragraphs: [
-      "Currently the backend can connect to the database and can compare given text password to the stored hash and return true if the password is correct. It can also compare if username exists and create users. So basic CRUD operations work on the local version. It is quite imperative to soon find a hosting solution for the node backend so I can get to working on connecting the backend.",
-      "I finally realized that the App file had grown unwieldy and became too long. So components were moved from it to separate files. While making this first log I can already tell I want a better solution for writing it.",
-      "The current login system at the time is planned to use cookies for storing the user login. So a cookie disclosure is added to site. Currently the close disclosure button doesn't work so it will be disabled for the build. The login forms seem quite daunting or the example code for it was overly complicated. Regardless it has to be designed. The current log in screen is quite ugly. I should find literature on color theory."
+      "The chat works now. WOOOOOO! The site's backend is on a site named Render which has a completely free tier which I am a sucker for. The chat section can now read the chat and send messages. Major progress.",
+      "Although it does just show it as JSON which is rather ugly and the message can't be sent with enter and login functionality from the backend is not implemented. Damn you self-criticism I am doing internet magic leave me be.",
+      "The next part will be making the chat presentable and make the login work. I wonder how many vulnerabilities the chat leaves for the server. I really ought to sanitize the inputs. Although form over function is quite a popular sentiment."
+    ]
+  },
+  {
+    id: 'entry-4',
+    title: 'Nominal progress report',
+    date: '9.6.2026',
+    category: 'Milestones',
+    icon: '✨',
+    theme: {
+      cardBg: 'from-emerald-950/90 via-teal-900/80 to-emerald-900/90',
+      border: 'border-emerald-500/40 hover:border-emerald-300',
+      tagBg: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+      titleColor: 'text-emerald-300',
+      glow: 'shadow-emerald-900/50',
+      dotBg: 'bg-emerald-400 ring-emerald-500/50'
+    },
+    paragraphs: [
+      "The account creation works now and shows the username in chat. So for the first time the site is doing something useful with the frontend, backend and database all communicating. A milestone in a long and rocky road.",
+      "The next part will focus on improving the frontend. Currently the frontend is not giving any feedback on any actions which makes the experience quite bare."
+    ]
+  },
+  {
+    id: 'entry-5',
+    title: 'AI and UI',
+    date: '6.7.2026',
+    category: 'AI & Workflow',
+    icon: '🤖',
+    theme: {
+      cardBg: 'from-fuchsia-950/90 via-pink-900/80 to-rose-950/90',
+      border: 'border-fuchsia-500/40 hover:border-fuchsia-300',
+      tagBg: 'bg-fuchsia-500/20 text-fuchsia-300 border-fuchsia-500/30',
+      titleColor: 'text-fuchsia-300',
+      glow: 'shadow-fuchsia-900/50',
+      dotBg: 'bg-fuchsia-400 ring-fuchsia-500/50'
+    },
+    paragraphs: [
+      "I have tried using an AI model for coding. I tried multiple different models. As with all of this site I needed it to be free. So I have started using Gemma4 and it is making website coding much more fun. I feel I lack a bit of working knowledge of webdevelopment and it does patch my expertise eerily well. It is quite manual still as I have to guide the model quite tightly. Most problems came from the model having too short of a response. I made a config file that made it have unlimited response length. That made it quite useful.",
+      "On the UI front I have been working on improving the chat and gallery with AI; it took a few days. Quite fast. I am worried about technical debt that might accumulate but using a local model does ease my nerves a bit. I do love local models at least.",
+      "The next hurdle will continue work on the JWT token reading and usage for forum. That will make the UI more responsive as it will show if the user is logged in. The forum page has a placeholder currently. I might look back at the replyke components but it might be more trouble than it is worth trying to modify it to fit my purpose. The register page could use a verification for the password when making an account and both could use regex verification I guess that will be on the backburner for now."
+    ]
+  },
+  {
+    id: 'entry-6',
+    title: 'Forum progress',
+    date: '20.7.2026',
+    category: 'Backend & UI',
+    icon: '💬',
+    theme: {
+      cardBg: 'from-violet-950/90 via-purple-900/80 to-indigo-950/90',
+      border: 'border-violet-500/40 hover:border-violet-300',
+      tagBg: 'bg-violet-500/20 text-violet-300 border-violet-500/30',
+      titleColor: 'text-violet-300',
+      glow: 'shadow-violet-900/50',
+      dotBg: 'bg-violet-400 ring-violet-500/50'
+    },
+    paragraphs: [
+      "The backend was quite easy to make work on a few commits and it got going. The front end was quite a bit more difficult to get going. The main problem was how to design the post data to be usable for the ui. I had to make decisions on what fields to have on the part that goes into the database. I settled on having the topic stored in the post data. So there are no separate categories stored on the database just on the posts. This should be improved by making the topics fixed to specific ones instead of being more free form.",
+      "As for the next part of this project I am not sure. I feel I should maybe work on adding a moderation system for the backend or maybe think of something else I have an environment to play in now."
     ]
   }
 ];
