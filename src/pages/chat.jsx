@@ -73,7 +73,7 @@ function Chat() {
       <div className="bg-slate-800 px-6 py-2.5 border-b border-slate-800/50 text-xs text-indigo-300/90 flex items-start gap-2">
         <span className="text-sm leading-none mt-0.5">ℹ️</span>
         <span>
-          Notice: Backend uses Render free tier. First message or chat load might take some seconds to start due to server cold start.
+          Notice: Server takes a bit to start. Please be patient...
         </span>
       </div>
 
