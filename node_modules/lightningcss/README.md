@@ -28,7 +28,7 @@ An extremely fast CSS parser, transformer, and minifier written in Rust. Use it 
   - CSS Nesting
   - Custom media queries (draft spec)
   - Logical properties
-  * [Color Level 5](https://drafts.csswg.org/css-color-5/)
+  - [Color Level 5](https://drafts.csswg.org/css-color-5/)
     - `color-mix()` function
     - Relative color syntax, e.g. `lab(from purple calc(l * .8) a b)`
   - [Color Level 4](https://drafts.csswg.org/css-color-4/)

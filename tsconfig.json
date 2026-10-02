@@ -6,7 +6,7 @@
       "@/*": ["./*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true, 
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -14,12 +14,12 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    
+
   },
   "include": ["src", "src/main.jsx"],
   "exclude": ["node_modules"]

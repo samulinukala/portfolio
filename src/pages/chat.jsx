@@ -1,7 +1,7 @@
 
 import React from "react";
 import {useEffect, useState,useRef} from "react";
-import { CookiesProvider, useCookies } from 'react-cookie';
+import { CookiesProvider } from 'react-cookie';
 async function getChatLog() {
   const url = "https://portfolio-backend-tur1.onrender.com/api/chat"
   const response = await fetch(url);
@@ -19,7 +19,7 @@ function Chat() {
   useEffect(() => {
     const chatTimer = setInterval(() => {
       getChatLog().then((d) => {
-       
+
         setChatData(d);
       })
     }, 1000);
@@ -64,7 +64,7 @@ function Chat() {
         <div>
           <h1 className="text-xl font-bold text-white tracking-wide">Live Chat</h1>
           <p className="text-xs text-slate-400 mt-0.5 flex items-center gap-1.5">
-          
+
           </p>
         </div>
       </div>
@@ -104,7 +104,7 @@ function Chat() {
             </div>
           ))
         )}
-       
+
       </div>
 
       {/* Input Bar - Docked */}

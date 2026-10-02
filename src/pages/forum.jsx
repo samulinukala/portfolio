@@ -9,7 +9,7 @@ const Forum = () => {
   const [postText, setPostText] = useState("");
   const [postHeader, setPostHeader] = useState("");
   const [postTopic, setPostTopic] = useState("");
-  
+
   // Status & Feedback States
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
@@ -73,12 +73,12 @@ const Forum = () => {
           topic: postTopic,
         })
       });
-      
+
       if (response.ok) {
         setSubmitStatus('success');
         setPostHeader("");
         setPostText("");
-        
+
         // Refresh topics list so the new post's topic is there
         await fetchTopics();
 
@@ -135,17 +135,17 @@ const Forum = () => {
 
       {/* Main Forum Card Container */}
       <div className="bg-slate-800/60 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-700/60 transition-all duration-300">
-        
+
         {/* Breadcrumb Navigation */}
         <div className="flex flex-wrap items-center gap-1.5 text-xs sm:text-sm text-slate-400 mb-6 bg-slate-900/40 px-3 py-1.5 rounded-xl border border-slate-700/30 w-fit">
-          <span 
+          <span
             className="hover:text-indigo-400 cursor-pointer transition-colors font-medium"
             onClick={() => { setRenderView(0); setSelectedPost(null); }}
           >
             Forum
           </span>
           <span className="text-slate-600">/</span>
-          <span 
+          <span
             className={`transition-colors font-medium ${renderView > 0 ? "hover:text-indigo-400 cursor-pointer" : "text-slate-300 font-semibold"}`}
             onClick={() => { if (renderView > 0) { setRenderView(0); setSelectedPost(null); } }}
           >
@@ -154,7 +154,7 @@ const Forum = () => {
           {renderView >= 1 && selectedTopic && (
             <>
               <span className="text-slate-600">/</span>
-              <span 
+              <span
                 className={`transition-colors font-medium truncate max-w-[120px] ${renderView > 1 ? "hover:text-indigo-400 cursor-pointer" : "text-slate-300 font-semibold"}`}
                 onClick={() => { if (renderView > 1) { setRenderView(1); setSelectedPost(null); } }}
               >
@@ -193,8 +193,8 @@ const Forum = () => {
                 </h2>
                 <p className="text-slate-400 text-sm mt-0.5">Explore active discussions by category.</p>
               </div>
-              <button 
-                onClick={() => { setPostTopic(''); setRenderView(3); }} 
+              <button
+                onClick={() => { setPostTopic(''); setRenderView(3); }}
                 className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all duration-300 cursor-pointer text-sm"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -255,8 +255,8 @@ const Forum = () => {
         {renderView === 1 && (
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700/50 mb-6">
-              <button 
-                onClick={() => setRenderView(0)} 
+              <button
+                onClick={() => setRenderView(0)}
                 className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-sm font-semibold border border-slate-700 transition-all duration-300 cursor-pointer self-start"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -264,8 +264,8 @@ const Forum = () => {
                 </svg>
                 Back to Topics
               </button>
-              <button 
-                onClick={() => { setPostTopic(selectedTopic); setRenderView(3); }} 
+              <button
+                onClick={() => { setPostTopic(selectedTopic); setRenderView(3); }}
                 className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all duration-300 cursor-pointer text-sm"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -347,8 +347,8 @@ const Forum = () => {
           <div>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-700/50 mb-6">
               <div className="flex flex-wrap gap-2">
-                <button 
-                  onClick={() => setRenderView(1)} 
+                <button
+                  onClick={() => setRenderView(1)}
                   className="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-700 transition-all duration-300 cursor-pointer"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -356,8 +356,8 @@ const Forum = () => {
                   </svg>
                   Back to List
                 </button>
-                <button 
-                  onClick={() => setRenderView(0)} 
+                <button
+                  onClick={() => setRenderView(0)}
                   className="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold border border-slate-700 transition-all duration-300 cursor-pointer"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -366,8 +366,8 @@ const Forum = () => {
                   All Topics
                 </button>
               </div>
-              <button 
-                onClick={() => { setPostTopic(selectedTopic); setRenderView(3); }} 
+              <button
+                onClick={() => { setPostTopic(selectedTopic); setRenderView(3); }}
                 className="flex items-center justify-center gap-1.5 bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-bold px-4 py-2 rounded-xl shadow-lg shadow-indigo-500/10 hover:shadow-indigo-500/20 transition-all duration-300 cursor-pointer text-xs sm:text-sm"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -413,8 +413,8 @@ const Forum = () => {
                 <h2 className="text-2xl font-bold text-white">Create a New Post</h2>
                 <p className="text-slate-400 text-sm mt-1">Start a conversation in our community workspace.</p>
               </div>
-              <button 
-                onClick={() => setRenderView(0)} 
+              <button
+                onClick={() => setRenderView(0)}
                 className="self-start sm:self-auto flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-4 py-2 rounded-xl text-sm font-semibold border border-slate-700 transition-all duration-300 cursor-pointer"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -451,12 +451,12 @@ const Forum = () => {
             <form onSubmit={onSubmit} className="space-y-5">
               <div>
                 <label className="block text-slate-300 font-semibold text-sm mb-2">Category / Topic</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={postTopic}
-                  onChange={e => setPostTopic(e.currentTarget.value)} 
-                  required 
-                  name="topic" 
+                  onChange={e => setPostTopic(e.currentTarget.value)}
+                  required
+                  name="topic"
                   placeholder="e.g. General, Suggestions, Help..."
                   className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-medium"
                 />
@@ -464,13 +464,13 @@ const Forum = () => {
 
               <div>
                 <label className="block text-slate-300 font-semibold text-sm mb-2">Post Title</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   maxLength={20}
                   value={postHeader}
-                  onChange={e => setPostHeader(e.currentTarget.value)} 
-                  required 
-                  name="title" 
+                  onChange={e => setPostHeader(e.currentTarget.value)}
+                  required
+                  name="title"
                   placeholder="Give your discussion a clear, descriptive title"
                   className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all font-medium"
                 />
@@ -478,12 +478,12 @@ const Forum = () => {
 
               <div>
                 <label className="block text-slate-300 font-semibold text-sm mb-2">Post Content</label>
-                <textarea 
+                <textarea
                   value={postText}
                   maxLength={500}
-                  onChange={e => setPostText(e.currentTarget.value)} 
-                  required 
-                  name="text" 
+                  onChange={e => setPostText(e.currentTarget.value)}
+                  required
+                  name="text"
                   placeholder="What's on your mind? Write your post body here..."
                   rows={6}
                   className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all leading-relaxed font-sans font-medium"
@@ -491,8 +491,8 @@ const Forum = () => {
               </div>
 
               <div className="pt-2 flex justify-end">
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   disabled={isSubmitting}
                   className={`flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/15 hover:shadow-indigo-500/30 transition-all duration-300 disabled:opacity-50 cursor-pointer w-full sm:w-auto`}
                 >
