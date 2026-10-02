@@ -6,17 +6,14 @@ import AppRoutes from './routes';
 
 function CookieThing() {
   const [cookie, setCookie] = useCookies(['showCookies']);
-  if (cookie == null || cookie.showCookies === undefined) {
-    setCookie("showCookies", "true");
-    console.log("made a cookie");
-  }
+  const showBanner = cookie.showCookies === undefined || cookie.showCookies === true || cookie.showCookies === 'true';
 
-  return cookie.showCookies === true && (
+  return showBanner && (
     <div className='bg-violet-900 border-t border-indigo-700/50 text-center p-2 shadow-xl z-50 fixed bottom-0 w-full'>
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4 py-1">
         <h3 className="text-lg font-semibold text-indigo-300">🍪 This site uses cookies for the login functionality. By using the site you accept this.</h3>
         <button
-          onClick={() => { setCookie("showCookies", false); }}
+          onClick={() => { setCookie("showCookies", "false"); }}
           className='bg-indigo-600 hover:bg-indigo-700 transition px-4 py-1 rounded-lg text-sm font-medium shadow-md'
         >
           Got It & Close
