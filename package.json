@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "tsc": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "playwright test"
   },
   "dependencies": {
     "@base-ui/react": "^1.8.0",
@@ -37,6 +38,7 @@
     "@babel/preset-typescript": "^7.28.5",
     "@chromatic-com/storybook": "latest",
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.63.0",
     "@storybook/addon-a11y": "^10.6.0",
     "@storybook/addon-docs": "^10.6.0",
     "@storybook/addon-mcp": "^10.6.0",
@@ -76,7 +78,7 @@
       "assets/"
     ]
   },
-"lint-staged": {
+  "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
       "eslint --fix",
       "bash -c 'tsc --noEmit'"
