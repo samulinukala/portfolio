@@ -98,8 +98,8 @@ Validation error: Number must be greater than 0 at "id"; Invalid email at "email
 ## API
 
 - [ValidationError(message[, options])](#validationerror)
-- [createErrorMap(options)](#createErrorMap)
-- [createMessageBuilder(options)](#createMessageBuilder)
+- [createErrorMap(options)](#createerrormap)
+- [createMessageBuilder(options)](#createmessagebuilder)
 - [isValidationError(error)](#isvalidationerror)
 - [isValidationErrorLike(error)](#isvalidationerrorlike)
 - [isZodErrorLike(error)](#iszoderrorlike)
@@ -156,7 +156,7 @@ Creates zod-validation-error's `errorMap`, which is used to format issues into u
 
 We think that zod's native error map is not user-friendly enough, so we provide our own implementation that formats issues into human-readable messages.
 
-Note: zod-validation-error's `errorMap` is an errorMap like all others and thus can also be used directly with `zod` (see https://zod.dev/error-customization for further details), e.g.
+Note: zod-validation-error's `errorMap` is an errorMap like all others and thus can also be used directly with `zod` (see <https://zod.dev/error-customization> for further details), e.g.
 
 #### Arguments
 
@@ -497,7 +497,7 @@ Source code contributions are most welcome. Please open a PR, ensure the linter 
 
 #### We are hiring
 
-Causaly is building the world's largest biomedical knowledge platform, using technologies such as TypeScript, React and Node.js. Find out more about our openings at https://jobs.ashbyhq.com/causaly.
+Causaly is building the world's largest biomedical knowledge platform, using technologies such as TypeScript, React and Node.js. Find out more about our openings at <https://jobs.ashbyhq.com/causaly>.
 
 ## License
 

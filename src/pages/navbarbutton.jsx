@@ -22,7 +22,7 @@ function NavbarButton(props) {
   };
 
   return (
-    <NavLink 
+    <NavLink
       to={targetTo}
       onClick={handleClick}
       className={({ isActive }) =>
@@ -39,4 +39,3 @@ function NavbarButton(props) {
 }
 
 export default NavbarButton;
-

@@ -26,6 +26,7 @@ git clone https://github.com/acornjs/acorn.git
 cd acorn
 npm install
 ```
+
 ## Importing acorn
 
 ESM as well as CommonJS is supported for all 3: `acorn`, `acorn-walk` and `acorn-loose`.
@@ -298,4 +299,4 @@ The utility spits out the syntax tree as JSON data.
 
 ## Existing plugins
 
- - [`acorn-jsx`](https://github.com/RReverser/acorn-jsx): Parse [Facebook JSX syntax extensions](https://github.com/facebook/jsx)
+- [`acorn-jsx`](https://github.com/RReverser/acorn-jsx): Parse [Facebook JSX syntax extensions](https://github.com/facebook/jsx)

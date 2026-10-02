@@ -13,7 +13,7 @@ const css = `
     font-size: 12px;
     color: #333;
   }
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -121,7 +121,7 @@ const css = `
     .container {
       padding: 10px;
     }
-    
+
     .sidebar {
       display: none;
     }
@@ -177,7 +177,7 @@ const css = `
   .header {
     background: red; /* Fallback color */
   }
-  
+
   /* Footer styles */
   .footer {
     background: blue;
@@ -191,7 +191,7 @@ ast.stylesheet.rules.forEach(rule => {
     console.log(`Comment: ${rule.comment}`);
   } else if (rule.type === 'rule') {
     console.log(`Rule: ${rule.selectors.join(', ')}`);
-    
+
     rule.declarations.forEach(decl => {
       if (decl.type === 'comment') {
         console.log(`  Comment: ${decl.comment}`);
@@ -254,26 +254,26 @@ import { parse, stringify } from '@adobe/css-tools';
 
 const complexCss = `
   @import url('https://fonts.googleapis.com/css2?family=Roboto');
-  
+
   @charset "UTF-8";
-  
+
   @media print {
     body {
       font-size: 12pt;
     }
   }
-  
+
   @supports (display: grid) {
     .grid {
       display: grid;
     }
   }
-  
+
   @keyframes slideIn {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(0); }
   }
-  
+
   @font-face {
     font-family: 'CustomFont';
     src: url('custom-font.woff2') format('woff2');
@@ -372,9 +372,9 @@ const problematicCss = `
   .another { border: 1px solid; } /* Missing closing brace */
 `;
 
-const result = parse(problematicCss, { 
-  silent: true, 
-  source: 'problematic.css' 
+const result = parse(problematicCss, {
+  silent: true,
+  source: 'problematic.css'
 });
 
 // Process valid rules
@@ -406,7 +406,7 @@ const css = `
     margin: 0;
     padding: 0;
   }
-  
+
   .container {
     max-width: 1200px;
     margin: 0 auto;

@@ -47,7 +47,7 @@ function colorise(value, styleType) {
     }
     return `\u001b[${color[0]}m${String(value)}\u001b[${color[1]}m`;
 }
-export function normaliseOptions({ showHidden = false, depth = 2, colors = false, customInspect = true, showProxy = false, maxArrayLength = Infinity, breakLength = Infinity, seen = [], 
+export function normaliseOptions({ showHidden = false, depth = 2, colors = false, customInspect = true, showProxy = false, maxArrayLength = Infinity, breakLength = Infinity, seen = [],
 // eslint-disable-next-line no-shadow
 truncate = Infinity, stylize = String, } = {}, inspect) {
     const options = {

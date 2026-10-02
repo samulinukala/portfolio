@@ -87,7 +87,7 @@ Validation error: Number must be greater than 0 at "id"; Invalid email at "email
 ## API
 
 - [ValidationError(message[, options])](#validationerror)
-- [createMessageBuilder(props)](#createMessageBuilder)
+- [createMessageBuilder(props)](#createmessagebuilder)
 - [errorMap](#errormap)
 - [isValidationError(error)](#isvalidationerror)
 - [isValidationErrorLike(error)](#isvalidationerrorlike)
@@ -142,7 +142,7 @@ Creates zod-validation-error's default `MessageBuilder`, which is used to produc
 
 Meant to be passed as an option to [fromError](#fromerror), [fromZodIssue](#fromzodissue), [fromZodError](#fromzoderror) or [toValidationError](#tovalidationerror).
 
-You may read more on the concept of the `MessageBuilder` further [below](#MessageBuilder).
+You may read more on the concept of the `MessageBuilder` further [below](#messagebuilder).
 
 #### Arguments
 
@@ -283,7 +283,7 @@ Alternatively, you may pass the following `options` instead of a `messageBuilder
   - `prefixSeparator` - _string_; used to concatenate prefix with rest of the user-friendly message (optional, defaults to ": "). Not used when `prefix` is `null`.
   - `includePath` - _boolean_; used to provide control on whether to include the erroneous property name suffix or not (optional, defaults to `true`).
 
-They will be passed as arguments to the [createMessageBuilder](#createMessageBuilder) function. The only reason they exist is to provide backwards-compatibility with older versions of `zod-validation-error`. They should however be considered deprecated and may be removed in the future.
+They will be passed as arguments to the [createMessageBuilder](#createmessagebuilder) function. The only reason they exist is to provide backwards-compatibility with older versions of `zod-validation-error`. They should however be considered deprecated and may be removed in the future.
 
 ### fromZodIssue
 
@@ -306,7 +306,7 @@ Alternatively, you may pass the following `options` instead of a `messageBuilder
   - `prefixSeparator` - _string_; used to concatenate prefix with rest of the user-friendly message (optional, defaults to ": "). Not used when `prefix` is `null`.
   - `includePath` - _boolean_; used to provide control on whether to include the erroneous property name suffix or not (optional, defaults to `true`).
 
-They will be passed as arguments to the [createMessageBuilder](#createMessageBuilder) function. The only reason they exist is to provide backwards-compatibility with older versions of `zod-validation-error`. They should however be considered deprecated and may be removed in the future.
+They will be passed as arguments to the [createMessageBuilder](#createmessagebuilder) function. The only reason they exist is to provide backwards-compatibility with older versions of `zod-validation-error`. They should however be considered deprecated and may be removed in the future.
 
 ### fromZodError
 
@@ -332,7 +332,7 @@ Alternatively, you may pass the following `options` instead of a `messageBuilder
   - `prefixSeparator` - _string_; used to concatenate prefix with rest of the user-friendly message (optional, defaults to ": "). Not used when `prefix` is `null`.
   - `includePath` - _boolean_; used to provide control on whether to include the erroneous property name suffix or not (optional, defaults to `true`).
 
-They will be passed as arguments to the [createMessageBuilder](#createMessageBuilder) function. The only reason they exist is to provide backwards-compatibility with older versions of `zod-validation-error`. They should however be considered deprecated and may be removed in the future.
+They will be passed as arguments to the [createMessageBuilder](#createmessagebuilder) function. The only reason they exist is to provide backwards-compatibility with older versions of `zod-validation-error`. They should however be considered deprecated and may be removed in the future.
 
 ### toValidationError
 
@@ -551,7 +551,7 @@ Source code contributions are most welcome. Please open a PR, ensure the linter 
 
 #### We are hiring
 
-Causaly is building the world's largest biomedical knowledge platform, using technologies such as TypeScript, React and Node.js. Find out more about our openings at https://jobs.ashbyhq.com/causaly.
+Causaly is building the world's largest biomedical knowledge platform, using technologies such as TypeScript, React and Node.js. Find out more about our openings at <https://jobs.ashbyhq.com/causaly>.
 
 ## License
 
