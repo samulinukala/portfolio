@@ -89,7 +89,7 @@ const Forum = () => {
         })
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
         const publishedTitle = postHeader;
         let responseMsg = '';
         try {
