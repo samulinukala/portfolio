@@ -16,6 +16,10 @@ const Forum = () => {
   const [isLoadingTopics, setIsLoadingTopics] = useState(false);
   const [isLoadingPosts, setIsLoadingPosts] = useState(false);
 
+  // Feedback State
+  const [createdPostTitle, setCreatedPostTitle] = useState('');
+  const [backendResponseMsg, setBackendResponseMsg] = useState('');
+
   // Fetch topics when the component mounts
   const fetchTopics = async () => {
     setIsLoadingTopics(true);
@@ -74,10 +78,29 @@ const Forum = () => {
         })
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
+        const publishedTitle = postHeader;
+        let responseMsg = '';
+        try {
+          const resData = await response.json();
+          responseMsg = typeof resData === 'string'
+            ? resData
+            : (resData.message || resData.msg || resData.status || '');
+        } catch (err) {
+          // If response body is not JSON or empty
+        }
+
+        setCreatedPostTitle(publishedTitle);
+        setBackendResponseMsg(responseMsg);
         setSubmitStatus('success');
         setPostHeader("");
         setPostText("");
+
+        const alertMessage = responseMsg
+          ? `${responseMsg}\n\nPost Title: "${publishedTitle}"`
+          : `Post Created Successfully: "${publishedTitle}"`;
+
+        window.alert(alertMessage);
 
         // Refresh topics list so the new post's topic is there
         await fetchTopics();
@@ -93,18 +116,10 @@ const Forum = () => {
           } catch (err) {
             console.error("Failed to refresh posts:", err);
           }
+          setRenderView(1);
+        } else {
+          setRenderView(0);
         }
-
-        // Navigate back to the topic page if posting to selectedTopic, else go to topics list
-        setTimeout(() => {
-          if (postTopic === selectedTopic) {
-            setRenderView(1);
-          } else {
-            setRenderView(0);
-          }
-          setSubmitStatus(null);
-        }, 1500);
-
       } else {
         setSubmitStatus('error');
       }
@@ -430,8 +445,8 @@ const Forum = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div>
-                  <h4 className="font-bold">Post Created Successfully!</h4>
-                  <p className="text-sm text-emerald-400/90 mt-0.5">Your message has been posted. Redirecting...</p>
+                  <h4 className="font-bold">Post Created Successfully: "{createdPostTitle}"</h4>
+                  <p className="text-sm text-emerald-400/90 mt-0.5">Your message has been posted in the forum.</p>
                 </div>
               </div>
             )}
