@@ -16,10 +16,9 @@ const Forum = () => {
   const [isLoadingTopics, setIsLoadingTopics] = useState(false);
   const [isLoadingPosts, setIsLoadingPosts] = useState(false);
 
-  // Dialog State
+  // Feedback State
   const [createdPostTitle, setCreatedPostTitle] = useState('');
   const [backendResponseMsg, setBackendResponseMsg] = useState('');
-  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
 
   // Fetch topics when the component mounts
   const fetchTopics = async () => {
@@ -62,16 +61,6 @@ const Forum = () => {
     }
   };
 
-  const handleCloseDialog = () => {
-    setShowSuccessDialog(false);
-    if (postTopic === selectedTopic) {
-      setRenderView(1);
-    } else {
-      setRenderView(0);
-    }
-    setSubmitStatus(null);
-  };
-
   const onSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
@@ -104,9 +93,14 @@ const Forum = () => {
         setCreatedPostTitle(publishedTitle);
         setBackendResponseMsg(responseMsg);
         setSubmitStatus('success');
-        setShowSuccessDialog(true);
         setPostHeader("");
         setPostText("");
+
+        const alertMessage = responseMsg
+          ? `${responseMsg}\n\nPost Title: "${publishedTitle}"`
+          : `Post Created Successfully: "${publishedTitle}"`;
+
+        window.alert(alertMessage);
 
         // Refresh topics list so the new post's topic is there
         await fetchTopics();
@@ -122,6 +116,9 @@ const Forum = () => {
           } catch (err) {
             console.error("Failed to refresh posts:", err);
           }
+          setRenderView(1);
+        } else {
+          setRenderView(0);
         }
       } else {
         setSubmitStatus('error');
@@ -529,49 +526,6 @@ const Forum = () => {
           </div>
         )}
       </div>
-
-      {/* Success Dialog Modal */}
-      {showSuccessDialog && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">
-          <div
-            className="bg-slate-800 border border-slate-700/80 rounded-2xl p-6 sm:p-7 max-w-md w-full shadow-2xl relative text-center space-y-4"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="modal-title"
-          >
-            <div className="w-14 h-14 bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center mx-auto shadow-lg shadow-emerald-500/10">
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-
-            <div>
-              <h3 id="modal-title" className="text-xl font-extrabold text-white">
-                Post Successfully Added!
-              </h3>
-              {backendResponseMsg && (
-                <div className="mt-2.5">
-                  <span className="inline-block text-xs font-semibold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-                    Backend: {backendResponseMsg}
-                  </span>
-                </div>
-              )}
-              <p className="text-slate-300 text-sm mt-3 leading-relaxed">
-                Your new forum post titled <span className="font-semibold text-indigo-400">"{createdPostTitle}"</span> has been created.
-              </p>
-            </div>
-
-            <div className="pt-2">
-              <button
-                onClick={handleCloseDialog}
-                className="w-full bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-bold py-2.5 px-4 rounded-xl shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30 transition-all duration-300 cursor-pointer text-sm"
-              >
-                Continue
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
