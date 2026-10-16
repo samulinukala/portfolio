@@ -11,7 +11,8 @@ function NavbarButton(props) {
     3: '/forum',
     4: '/login',
     5: '/register',
-    6: '/chat'
+    6: '/chat',
+    7: '/projects'
   };
 
   const targetTo = to || (num !== undefined ? numToPath[num] : '/about') || '/about';

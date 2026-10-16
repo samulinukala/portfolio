@@ -1,5 +1,5 @@
 import NavbarButton from "./navbarbutton.jsx";
-import {useState,useRef,useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
 function Navbar(props)
 {
@@ -58,6 +58,7 @@ return (
     {/* Group 1: All Nav Buttons - Limited width/spacing area */}
     <div className='flex mr-auto'>
 <NavbarButton Text="About" to="/about" />
+<NavbarButton Text="Project List" to="/projects" />
 <NavbarButton Text="Gallery" to="/gallery" />
 <NavbarButton Text="Devlog" to="/devlog" />
 <NavbarButton Text="Forum" to="/forum" />

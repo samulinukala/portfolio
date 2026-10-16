@@ -6,6 +6,7 @@ import Forum from './forum.jsx';
 import LoginPage from './login.jsx';
 import RegisterPage from './register.jsx';
 import Chat from './chat.jsx';
+import ProjectList from './projectList.jsx';
 
 interface AppRoutesProps {
   cookies?: any;
@@ -18,6 +19,8 @@ export const AppRoutes = ({ cookies, setCookie, onLoginSuccess }: AppRoutesProps
     <Routes>
       <Route path="/" element={<About />} />
       <Route path="/about" element={<About />} />
+      <Route path="/projects" element={<ProjectList />} />
+      <Route path="/project-list" element={<ProjectList />} />
       <Route path="/gallery" element={<Gallery />} />
       <Route path="/devlog" element={<DevLog />} />
       <Route path="/forum" element={<Forum />} />
@@ -27,6 +30,11 @@ export const AppRoutes = ({ cookies, setCookie, onLoginSuccess }: AppRoutesProps
 
       {/* Case-insensitive / capitalized route redirects */}
       <Route path="/About" element={<Navigate to="/about" replace />} />
+      <Route path="/Projects" element={<Navigate to="/projects" replace />} />
+      <Route path="/ProjectList" element={<Navigate to="/projects" replace />} />
+      <Route path="/Project-list" element={<Navigate to="/project-list" replace />} />
+      <Route path="/Project-List" element={<Navigate to="/project-list" replace />} />
+      <Route path="/projectlist" element={<Navigate to="/projects" replace />} />
       <Route path="/Gallery" element={<Navigate to="/gallery" replace />} />
       <Route path="/Devlog" element={<Navigate to="/devlog" replace />} />
       <Route path="/DevLog" element={<Navigate to="/devlog" replace />} />
