@@ -76,11 +76,6 @@ repos:
   - id: markdownlint
     args: ["--fix"]
 
-- repo: https://github.com/JangasCodingplace/commit-prefix-pre-commit
-  rev: v0.0.3-beta
-  hooks:
-  - id: commit-prefix
-    stages: [ commit-msg ]
 
 
 - repo: local
@@ -97,3 +92,10 @@ repos:
       entry: npx tsc --noEmit --skipLibCheck
       language: system
       pass_filenames: false
+
+- repo: https://github.com/JangasCodingplace/commit-prefix-pre-commit
+  rev: v0.0.3-beta
+  hooks:
+  - id: commit-prefix
+    stages: [ commit-msg ]
+
