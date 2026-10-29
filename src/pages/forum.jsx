@@ -9,6 +9,9 @@ const Forum = () => {
   const [postText, setPostText] = useState("");
   const [postHeader, setPostHeader] = useState("");
   const [postTopic, setPostTopic] = useState("");
+  const [commentText, setCommentText] = useState("");
+  const [isSubmittingComment, setIsSubmittingComment] = useState(false);
+  const [commentStatus, setCommentStatus] = useState(null);
 
   // Status & Feedback States
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -128,6 +131,65 @@ const Forum = () => {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const onSubmitComment = async (e) => {
+    e.preventDefault();
+    if (isSubmittingComment || !selectedPost) return;
+
+    const text = commentText.trim();
+    const postId = selectedPost._id || selectedPost.id || selectedPost.postId;
+    if (!text) {
+      setCommentStatus({ type: 'error', message: 'Enter a comment before submitting.' });
+      return;
+    }
+    if (!postId) {
+      setCommentStatus({ type: 'error', message: 'This post does not have an ID, so a comment cannot be submitted.' });
+      return;
+    }
+
+    setIsSubmittingComment(true);
+    setCommentStatus(null);
+    try {
+      const userResponse = await fetch("https://portfolio-backend-tur1.onrender.com/api/users/getLoggedInUser", {
+        credentials: 'include',
+        method: 'GET'
+      });
+      if (!userResponse.ok) {
+        throw new Error(`Failed to load the current user (HTTP ${userResponse.status}).`);
+      }
+
+      const userData = await userResponse.json();
+      const user = typeof userData === 'string'
+        ? userData
+        : (userData?.userName || userData?.username || 'anonymous');
+      const response = await fetch(`https://portfolio-backend-tur1.onrender.com/api/posts/${encodeURIComponent(postId)}/addComment`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ user, text })
+      });
+      if (!response.ok) {
+        throw new Error(`Failed to add comment (HTTP ${response.status}).`);
+      }
+
+      setSelectedPost(currentPost => currentPost
+        ? {
+            ...currentPost,
+            comments: [
+              ...(Array.isArray(currentPost.comments) ? currentPost.comments : []),
+              { user, text }
+            ]
+          }
+        : currentPost);
+      setCommentText("");
+      setCommentStatus({ type: 'success', message: 'Comment added successfully.' });
+    } catch (error) {
+      console.error("Failed to add comment:", error);
+      setCommentStatus({ type: 'error', message: error.message || 'Failed to add comment. Please try again.' });
+    } finally {
+      setIsSubmittingComment(false);
     }
   };
 
@@ -415,6 +477,50 @@ const Forum = () => {
                 <div className="bg-slate-900/50 rounded-xl p-5 sm:p-6 border border-slate-800 text-slate-300 leading-relaxed text-sm sm:text-base whitespace-pre-wrap font-medium shadow-inner">
                   {selectedPost.text || "No content available."}
                 </div>
+
+                <section className="space-y-4">
+                  <h3 className="text-lg font-bold text-white">Comments</h3>
+                  {Array.isArray(selectedPost.comments) && selectedPost.comments.length > 0 ? (
+                    <div className="space-y-3">
+                      {selectedPost.comments.map((comment, index) => (
+                        <div key={comment.id || comment._id || index} className="rounded-xl border border-slate-700/50 bg-slate-900/40 p-4">
+                          <p className="text-xs font-semibold text-indigo-300">{comment.user || comment.username || 'anonymous'}</p>
+                          <p className="mt-1 whitespace-pre-wrap text-sm text-slate-300">{comment.text || comment}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-sm text-slate-400">No comments yet. Start the conversation.</p>
+                  )}
+
+                  <form onSubmit={onSubmitComment} className="space-y-3">
+                    <label htmlFor="forum-comment" className="block text-sm font-semibold text-slate-300">Add a comment</label>
+                    <textarea
+                      id="forum-comment"
+                      value={commentText}
+                      onChange={event => setCommentText(event.currentTarget.value)}
+                      maxLength={500}
+                      required
+                      rows={3}
+                      placeholder="Write your comment..."
+                      className="w-full rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-white placeholder-slate-500 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    />
+                    {commentStatus && (
+                      <p role="status" className={`text-sm ${commentStatus.type === 'success' ? 'text-emerald-400' : 'text-rose-400'}`}>
+                        {commentStatus.message}
+                      </p>
+                    )}
+                    <div className="flex justify-end">
+                      <button
+                        type="submit"
+                        disabled={isSubmittingComment}
+                        className="rounded-xl bg-linear-to-r from-indigo-500 to-violet-600 px-5 py-2.5 text-sm font-bold text-white transition disabled:cursor-not-allowed disabled:opacity-50"
+                      >
+                        {isSubmittingComment ? 'Submitting...' : 'Add Comment'}
+                      </button>
+                    </div>
+                  </form>
+                </section>
               </div>
             )}
           </div>
