@@ -59,7 +59,6 @@ return (
     <div className='flex mr-auto'>
 <NavbarButton Text="About" to="/about" />
 <NavbarButton Text="Project List" to="/projects" />
-<NavbarButton Text="Gallery" to="/gallery" />
 <NavbarButton Text="Devlog" to="/devlog" />
 <NavbarButton Text="Forum" to="/forum" />
 <NavbarButton Text="Login" to="/login" />
