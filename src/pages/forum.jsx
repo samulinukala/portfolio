@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import ServerStatusIndicator from './serverStatus.jsx';
 const Forum = () => {
   const [topics, setTopics] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -209,7 +209,7 @@ const Forum = () => {
           Share your ideas, ask questions, or explore the sandbox workspace with the developer community.
         </p>
       </div>
-
+      <ServerStatusIndicator />
       {/* Main Forum Card Container */}
       <div className="bg-slate-800/60 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-xl border border-slate-700/60 transition-all duration-300">
 
