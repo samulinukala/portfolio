@@ -35,7 +35,7 @@ const ProjectCard = ({
             src={imageUrl}
             alt={`${title} preview`}
             loading="lazy"
-            className="aspect-video w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            className="aspect-video w-full h-full object-scale-down transition duration-500 group-hover:scale-[1.03]"
           />
         </a>
       )}

@@ -16,8 +16,8 @@ const ProjectList = () => {
       of improving on the many clock sites on the web. Many clock sites have customisation options and yet lack common features like 
       a timer or a calendar. I decided to add functionality to the site that I most comnonly needed. Another goal was to expand my knowledge of AI coding
       the site is nearly fully coded using AI. The purpose behind that was to test the abilities of AI and make the purpose of a human coder more of 
-      an architect of the app." link="https://samulinukala.github.io/better-clock/" />
-      <ProjectCard className="w-max" header="fullstack" title="This portfolio" shortDescription="My site to work as platform to improve my skills and show my progress." 
+      an architect of the app." imageUrl="https://lh3.googleusercontent.com/d/1P1TcNUMeVzacl25J7g937uiAtgGsBNR6"  link="https://samulinukala.github.io/better-clock/" />
+      <ProjectCard className="w-max" header="fullstack" title="This portfolio" imageUrl="https://lh3.googleusercontent.com/d/1lNlDl1K795PEpS6EHm9Pmbv_1xfByadu"shortDescription="My site to work as platform to improve my skills and show my progress." 
       description="The site was made to showcase my skills and projects. 
       It is a simple site that is easy to navigate and understand. The purpose of the site is to showcase my skills and projects. The site has a functional forum and a chat that can be used.
       It has a backend that is hosted on Render and a frontend that is hosted on GitHub Pages. The site is made using React and Tailwind CSS. 
