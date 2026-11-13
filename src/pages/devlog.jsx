@@ -141,6 +141,28 @@ const LOG_ENTRIES = [
       "The site has changed url from samulinukala.github.io to samulinukala.github.io/portfolio. This is part of the build process and seperate repository for hosting will be removed since CI/CD does that now.",
     ],
   },
+  {
+    id: "entry-8",
+    title: "Adding the projects page and Better Clock project",
+    date: "13.11.2026",
+    category: "Frontend & projects",
+    icon: "🖼️",
+    theme: {
+      cardBg: "from-emerald-950/90 via-teal-900/80 to-emerald-900/90",
+      border: "border-emerald-500/40 hover:border-emerald-300",
+      tagBg: "bg-emerald-500/20 text-emerald-300 border-emerald-500/30",
+      titleColor: "text-emerald-300",
+      glow: "shadow-emerald-900/50",
+      dotBg: "bg-emerald-400 ring-emerald-500/50",
+    },
+    paragraphs: [
+      "I decided to add a projects page to the site. I feel it can make the site more interesting to browse as not everything is about the portfolio site.",
+      "I decided to make a project called Better Clock. It is a clock site that has a timer and a calendar. I wanted to make a clock site that has the features I most commonly need. The site is made using React and Tailwind CSS.", 
+      "I took a different hat in the development of the site. I focused on being more of an architect of the site and make more high level decisions.", 
+      "It was also something i just wanted to make. It is useful as I normally have a clock on my panel that shows the time with imprecise text and having a site that shows time and has a timer is useful",
+      "The next part of the site will be to add more projects and improve the Better Clock site. The ui of it is a bit lacking and I will also improve the project listing. As for longer term goals. I am somewhat interested in making a fullstack app that uses C# or Java as the backend and preferably has an SQL database. I do not have an idea for it now but I will find a suitable use."
+    ],
+  }
 ];
 
 function DevLog() {
@@ -150,7 +172,7 @@ function DevLog() {
 
   const categories = [
     "All",
-    ...new Set(LOG_ENTRIES.reverse().map((e) => e.category)),
+    ...new Set(LOG_ENTRIES.map((e) => e.category)),
   ];
 
   const toggleExpand = (id) => {
@@ -160,7 +182,7 @@ function DevLog() {
     }));
   };
 
-  const filteredEntries = LOG_ENTRIES.reverse().filter((entry) => {
+  const filteredEntries = [...LOG_ENTRIES].reverse().filter((entry) => {
     const matchesCategory =
       selectedCategory === "All" || entry.category === selectedCategory;
     const matchesSearch =
