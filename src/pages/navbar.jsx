@@ -57,8 +57,8 @@ return (
   <div className='h-16 flex pr-96 bg-slate-700 items-center  '>
     {/* Group 1: All Nav Buttons - Limited width/spacing area */}
     <div className='flex mr-auto'>
-<NavbarButton Text="About" to="/about" />
 <NavbarButton Text="Project List" to="/projects" />
+<NavbarButton Text="About" to="/about" />
 <NavbarButton Text="Devlog" to="/devlog" />
 <NavbarButton Text="Forum" to="/forum" />
 <NavbarButton Text="Login" to="/login" />

@@ -1,8 +1,9 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 function NavbarButton(props) {
   const { Text, to, num, changefunc, onClick, className = '' } = props;
+  const { pathname } = useLocation();
 
   const numToPath = {
     0: '/gallery',
@@ -26,13 +27,14 @@ function NavbarButton(props) {
     <NavLink
       to={targetTo}
       onClick={handleClick}
-      className={({ isActive }) =>
-        `px-4 py-2 mx-1 rounded-lg text-sm transition duration-150 border inline-block ${className} ${
-          isActive
+      className={({ isActive }) => {
+        const isProjectHome = targetTo === '/projects' && pathname === '/';
+        return `px-4 py-2 mx-1 rounded-lg text-sm transition duration-150 border inline-block ${className} ${
+          isActive || isProjectHome
             ? 'bg-indigo-600 text-white border-indigo-400 font-semibold shadow-sm'
             : 'bg-indigo-200 text-indigo-700 hover:bg-indigo-50 border-transparent hover:border-indigo-300'
-        }`
-      }
+        }`;
+      }}
     >
       {Text}
     </NavLink>

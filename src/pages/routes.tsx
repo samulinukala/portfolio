@@ -17,7 +17,7 @@ interface AppRoutesProps {
 export const AppRoutes = ({ cookies, setCookie, onLoginSuccess }: AppRoutesProps) => {
   return (
     <Routes>
-      <Route path="/" element={<About />} />
+      <Route path="/" element={<ProjectList />} />
       <Route path="/about" element={<About />} />
       <Route path="/projects" element={<ProjectList />} />
       <Route path="/project-list" element={<ProjectList />} />

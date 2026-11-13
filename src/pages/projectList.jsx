@@ -22,7 +22,7 @@ const ProjectList = () => {
       It is a simple site that is easy to navigate and understand. The purpose of the site is to showcase my skills and projects. The site has a functional forum and a chat that can be used.
       It has a backend that is hosted on Render and a frontend that is hosted on GitHub Pages. The site is made using React and Tailwind CSS. 
       I increasingly utilize AI to improve the speed of development while reducing technical debt by reviewing all the code added." 
-      link="https://samulinukala.github.io/portfolio/" />
+      link="https://samulinukala.github.io/portfolio/About" />
       </div>
 
     
